@@ -1,0 +1,28 @@
+﻿<Page x:Class="IssuerAccount.Pages.PageLogin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IssuerAccount.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="695" d:DesignWidth="1400"
+      Title="PageLogin" Background="#659DBD" FontFamily="Bahnschrift SemiBold">
+
+    <Grid>
+        <TextBlock  HorizontalAlignment="Center" Margin="0 40 0 0" FontSize="35" Foreground="white" FontFamily="Bahnschrift SemiBold" > Вход в аккаунт </TextBlock>
+        <StackPanel Margin="0 80 0 0" Width="500" Height="550" Background="#41B3A3">
+            <TextBlock FontSize="27" Text="Ваше имя пользователя" Foreground="white" Margin="15 50 0 0"></TextBlock>
+            <TextBox x:Name="tblogin" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+
+            <TextBlock FontSize="27" Text="Ваш пароль" Foreground="white" Margin="15 30 0 0"></TextBlock>
+            <TextBox x:Name="tbPassword" Height="40" Background="white" Foreground="#41B3A3" Width="450" Margin="15 5 0 0" FontSize="25" HorizontalAlignment="Left" ></TextBox>
+
+            <Button x:Name="btnlogin" Content="Войти" Margin="15 50 0 0" Width="450" HorizontalAlignment="Left" Height="50" FontSize="27" Foreground="AliceBlue" Background="#FF3567B9" ></Button>
+            <Button x:Name="btnreg" Content="Создать новый аккаунт" Margin="15 50 0 0" Width="450" HorizontalAlignment="Left" Height="50" FontSize="27" Foreground="AliceBlue" Background="#C38D9E" ></Button>
+
+            <StackPanel.Effect>
+                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3" />
+            </StackPanel.Effect>
+        </StackPanel>
+    </Grid>
+</Page>
