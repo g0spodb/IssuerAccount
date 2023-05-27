@@ -1,0 +1,35 @@
+﻿<Page x:Class="IssuerAccount.Pages.PageRegistration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IssuerAccount.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="695" d:DesignWidth="1400"
+      Title="PageRegistration">
+
+    <Grid>
+
+        <StackPanel Margin="0 40 0 0" Width="500" Background="#41B3A3" Height="610">
+
+            <TextBlock FontSize="27" Text="Ваше ФИО" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <TextBox x:Name="tbFullName" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+
+            <TextBlock FontSize="27" Text="Ваше имя пользователя" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <TextBox x:Name="tbLogin" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+
+            <TextBlock FontSize="27" Text="Ваш пароль" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <PasswordBox x:Name="pbPassword" Height="40" Background="white" Foreground="#41B3A3" Width="450" Margin="15 5 0 0" FontSize="25" HorizontalAlignment="Left" ></PasswordBox>
+
+            <TextBlock FontSize="27" Text="Ваш адрес" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <TextBox x:Name="tbAdress" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+            <TextBlock FontSize="27" Text="Ваш номер телефона" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <TextBox x:Name="tbPhone" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+            <Button x:Name="btnReg" Click="BtnReg_Click" Content="Зарегистрироваться" Margin="15 50 0 0" Width="450" HorizontalAlignment="Left" Height="50" FontSize="27" Foreground="AliceBlue" Background="#C38D9E" ></Button>
+            
+            <StackPanel.Effect>
+                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3"/>
+            </StackPanel.Effect>
+        </StackPanel>
+    </Grid>
+</Page>

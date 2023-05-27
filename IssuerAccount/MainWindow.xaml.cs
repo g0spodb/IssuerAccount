@@ -34,7 +34,8 @@ namespace IssuerAccount
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            if (frmMain.NavigationService.CanGoBack)
+                frmMain.NavigationService.GoBack();
         }
     }
 }

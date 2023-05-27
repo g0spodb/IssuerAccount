@@ -1,0 +1,660 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище IssuerAccountModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Balance" Type="int" />
+          <Property Name="OpeningDate" Type="date" />
+        </EntityType>
+        <EntityType Name="AccountOpeningApplication">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_Issuer" Type="int" />
+          <Property Name="RegistrationStatus" Type="bit" />
+          <Property Name="DateOfApplication" Type="date" />
+          <Property Name="DateApprovalApplication" Type="date" />
+          <Property Name="Id_Registrar" Type="int" />
+        </EntityType>
+        <EntityType Name="Deal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_Security" Type="int" />
+          <Property Name="Id_Investor" Type="int" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <EntityType Name="Investor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="600" />
+          <Property Name="Adress" Type="varchar" MaxLength="500" />
+          <Property Name="Phone" Type="varchar" MaxLength="100" />
+          <Property Name="Id_Account" Type="int" />
+        </EntityType>
+        <EntityType Name="Issuer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="300" />
+          <Property Name="Password" Type="varchar" MaxLength="300" />
+          <Property Name="FullName" Type="varchar" MaxLength="600" />
+          <Property Name="Adress" Type="varchar" MaxLength="500" />
+          <Property Name="Phone" Type="varchar" MaxLength="500" />
+          <Property Name="Id_Organization" Type="int" />
+          <Property Name="Id_Account" Type="int" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" />
+          <Property Name="Adress" Type="varchar" MaxLength="500" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Registrar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="600" />
+          <Property Name="Adress" Type="varchar" MaxLength="500" />
+          <Property Name="Phone" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Security">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Id_Issuer" Type="int" />
+          <Property Name="RegistrationStatus" Type="bit" />
+          <Property Name="Id_Registrar" Type="int" />
+          <Property Name="SaleStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_AccountOpeningApplication_Issuer">
+          <End Role="Issuer" Type="Self.Issuer" Multiplicity="0..1" />
+          <End Role="AccountOpeningApplication" Type="Self.AccountOpeningApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Issuer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccountOpeningApplication">
+              <PropertyRef Name="Id_Issuer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountOpeningApplication_Registrar">
+          <End Role="Registrar" Type="Self.Registrar" Multiplicity="0..1" />
+          <End Role="AccountOpeningApplication" Type="Self.AccountOpeningApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Registrar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccountOpeningApplication">
+              <PropertyRef Name="Id_Registrar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deal_Investor">
+          <End Role="Investor" Type="Self.Investor" Multiplicity="0..1" />
+          <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Investor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="Id_Investor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deal_Security">
+          <End Role="Security" Type="Self.Security" Multiplicity="0..1" />
+          <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Security">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="Id_Security" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Investor_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Investor" Type="Self.Investor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Investor">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Issuer_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Issuer" Type="Self.Issuer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Issuer">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Issuer_Organization">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="0..1" />
+          <End Role="Issuer" Type="Self.Issuer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Issuer">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Security_Issuer">
+          <End Role="Issuer" Type="Self.Issuer" Multiplicity="0..1" />
+          <End Role="Security" Type="Self.Security" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Issuer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Security">
+              <PropertyRef Name="Id_Issuer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Security_Registrar">
+          <End Role="Registrar" Type="Self.Registrar" Multiplicity="0..1" />
+          <End Role="Security" Type="Self.Security" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Registrar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Security">
+              <PropertyRef Name="Id_Registrar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище IssuerAccountModelContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountOpeningApplication" EntityType="Self.AccountOpeningApplication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Deal" EntityType="Self.Deal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Investor" EntityType="Self.Investor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Issuer" EntityType="Self.Issuer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization" EntityType="Self.Organization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Registrar" EntityType="Self.Registrar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Security" EntityType="Self.Security" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AccountOpeningApplication_Issuer" Association="Self.FK_AccountOpeningApplication_Issuer">
+            <End Role="Issuer" EntitySet="Issuer" />
+            <End Role="AccountOpeningApplication" EntitySet="AccountOpeningApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountOpeningApplication_Registrar" Association="Self.FK_AccountOpeningApplication_Registrar">
+            <End Role="Registrar" EntitySet="Registrar" />
+            <End Role="AccountOpeningApplication" EntitySet="AccountOpeningApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deal_Investor" Association="Self.FK_Deal_Investor">
+            <End Role="Investor" EntitySet="Investor" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deal_Security" Association="Self.FK_Deal_Security">
+            <End Role="Security" EntitySet="Security" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Investor_Account" Association="Self.FK_Investor_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Investor" EntitySet="Investor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Issuer_Account" Association="Self.FK_Issuer_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Issuer" EntitySet="Issuer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Issuer_Organization" Association="Self.FK_Issuer_Organization">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Issuer" EntitySet="Issuer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Security_Issuer" Association="Self.FK_Security_Issuer">
+            <End Role="Issuer" EntitySet="Issuer" />
+            <End Role="Security" EntitySet="Security" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Security_Registrar" Association="Self.FK_Security_Registrar">
+            <End Role="Registrar" EntitySet="Registrar" />
+            <End Role="Security" EntitySet="Security" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IssuerAccountModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Balance" Type="Int32" />
+          <Property Name="OpeningDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Investor" Relationship="Self.FK_Investor_Account" FromRole="Account" ToRole="Investor" />
+          <NavigationProperty Name="Issuer" Relationship="Self.FK_Issuer_Account" FromRole="Account" ToRole="Issuer" />
+        </EntityType>
+        <EntityType Name="AccountOpeningApplication">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_Issuer" Type="Int32" />
+          <Property Name="RegistrationStatus" Type="Boolean" />
+          <Property Name="DateOfApplication" Type="DateTime" Precision="0" />
+          <Property Name="DateApprovalApplication" Type="DateTime" Precision="0" />
+          <Property Name="Id_Registrar" Type="Int32" />
+          <NavigationProperty Name="Issuer" Relationship="Self.FK_AccountOpeningApplication_Issuer" FromRole="AccountOpeningApplication" ToRole="Issuer" />
+          <NavigationProperty Name="Registrar" Relationship="Self.FK_AccountOpeningApplication_Registrar" FromRole="AccountOpeningApplication" ToRole="Registrar" />
+        </EntityType>
+        <EntityType Name="Deal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_Security" Type="Int32" />
+          <Property Name="Id_Investor" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Investor" Relationship="Self.FK_Deal_Investor" FromRole="Deal" ToRole="Investor" />
+          <NavigationProperty Name="Security" Relationship="Self.FK_Deal_Security" FromRole="Deal" ToRole="Security" />
+        </EntityType>
+        <EntityType Name="Investor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Account" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Investor_Account" FromRole="Investor" ToRole="Account" />
+          <NavigationProperty Name="Deal" Relationship="Self.FK_Deal_Investor" FromRole="Investor" ToRole="Deal" />
+        </EntityType>
+        <EntityType Name="Issuer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Organization" Type="Int32" />
+          <Property Name="Id_Account" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Issuer_Account" FromRole="Issuer" ToRole="Account" />
+          <NavigationProperty Name="AccountOpeningApplication" Relationship="Self.FK_AccountOpeningApplication_Issuer" FromRole="Issuer" ToRole="AccountOpeningApplication" />
+          <NavigationProperty Name="Organization" Relationship="Self.FK_Issuer_Organization" FromRole="Issuer" ToRole="Organization" />
+          <NavigationProperty Name="Security" Relationship="Self.FK_Security_Issuer" FromRole="Issuer" ToRole="Security" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Issuer" Relationship="Self.FK_Issuer_Organization" FromRole="Organization" ToRole="Issuer" />
+        </EntityType>
+        <EntityType Name="Registrar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AccountOpeningApplication" Relationship="Self.FK_AccountOpeningApplication_Registrar" FromRole="Registrar" ToRole="AccountOpeningApplication" />
+          <NavigationProperty Name="Security" Relationship="Self.FK_Security_Registrar" FromRole="Registrar" ToRole="Security" />
+        </EntityType>
+        <EntityType Name="Security">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Id_Issuer" Type="Int32" />
+          <Property Name="RegistrationStatus" Type="Boolean" />
+          <Property Name="Id_Registrar" Type="Int32" />
+          <Property Name="SaleStatus" Type="Boolean" />
+          <NavigationProperty Name="Deal" Relationship="Self.FK_Deal_Security" FromRole="Security" ToRole="Deal" />
+          <NavigationProperty Name="Issuer" Relationship="Self.FK_Security_Issuer" FromRole="Security" ToRole="Issuer" />
+          <NavigationProperty Name="Registrar" Relationship="Self.FK_Security_Registrar" FromRole="Security" ToRole="Registrar" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Investor_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Investor" Type="Self.Investor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Investor">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Issuer_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Issuer" Type="Self.Issuer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Issuer">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountOpeningApplication_Issuer">
+          <End Role="Issuer" Type="Self.Issuer" Multiplicity="0..1" />
+          <End Role="AccountOpeningApplication" Type="Self.AccountOpeningApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Issuer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccountOpeningApplication">
+              <PropertyRef Name="Id_Issuer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountOpeningApplication_Registrar">
+          <End Role="Registrar" Type="Self.Registrar" Multiplicity="0..1" />
+          <End Role="AccountOpeningApplication" Type="Self.AccountOpeningApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Registrar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccountOpeningApplication">
+              <PropertyRef Name="Id_Registrar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deal_Investor">
+          <End Role="Investor" Type="Self.Investor" Multiplicity="0..1" />
+          <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Investor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="Id_Investor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deal_Security">
+          <End Role="Security" Type="Self.Security" Multiplicity="0..1" />
+          <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Security">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="Id_Security" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Issuer_Organization">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="0..1" />
+          <End Role="Issuer" Type="Self.Issuer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Issuer">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Security_Issuer">
+          <End Role="Issuer" Type="Self.Issuer" Multiplicity="0..1" />
+          <End Role="Security" Type="Self.Security" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Issuer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Security">
+              <PropertyRef Name="Id_Issuer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Security_Registrar">
+          <End Role="Registrar" Type="Self.Registrar" Multiplicity="0..1" />
+          <End Role="Security" Type="Self.Security" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Registrar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Security">
+              <PropertyRef Name="Id_Registrar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IssuerAccountEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Account" EntityType="Self.Account" />
+          <EntitySet Name="AccountOpeningApplication" EntityType="Self.AccountOpeningApplication" />
+          <EntitySet Name="Deal" EntityType="Self.Deal" />
+          <EntitySet Name="Investor" EntityType="Self.Investor" />
+          <EntitySet Name="Issuer" EntityType="Self.Issuer" />
+          <EntitySet Name="Organization" EntityType="Self.Organization" />
+          <EntitySet Name="Registrar" EntityType="Self.Registrar" />
+          <EntitySet Name="Security" EntityType="Self.Security" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_Investor_Account" Association="Self.FK_Investor_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Investor" EntitySet="Investor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Issuer_Account" Association="Self.FK_Issuer_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Issuer" EntitySet="Issuer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountOpeningApplication_Issuer" Association="Self.FK_AccountOpeningApplication_Issuer">
+            <End Role="Issuer" EntitySet="Issuer" />
+            <End Role="AccountOpeningApplication" EntitySet="AccountOpeningApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountOpeningApplication_Registrar" Association="Self.FK_AccountOpeningApplication_Registrar">
+            <End Role="Registrar" EntitySet="Registrar" />
+            <End Role="AccountOpeningApplication" EntitySet="AccountOpeningApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deal_Investor" Association="Self.FK_Deal_Investor">
+            <End Role="Investor" EntitySet="Investor" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deal_Security" Association="Self.FK_Deal_Security">
+            <End Role="Security" EntitySet="Security" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Issuer_Organization" Association="Self.FK_Issuer_Organization">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Issuer" EntitySet="Issuer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Security_Issuer" Association="Self.FK_Security_Issuer">
+            <End Role="Issuer" EntitySet="Issuer" />
+            <End Role="Security" EntitySet="Security" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Security_Registrar" Association="Self.FK_Security_Registrar">
+            <End Role="Registrar" EntitySet="Registrar" />
+            <End Role="Security" EntitySet="Security" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище IssuerAccountModelContainer" CdmEntityContainer="IssuerAccountEntities">
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="IssuerAccountModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="OpeningDate" ColumnName="OpeningDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountOpeningApplication">
+            <EntityTypeMapping TypeName="IssuerAccountModel.AccountOpeningApplication">
+              <MappingFragment StoreEntitySet="AccountOpeningApplication">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Issuer" ColumnName="Id_Issuer" />
+                <ScalarProperty Name="RegistrationStatus" ColumnName="RegistrationStatus" />
+                <ScalarProperty Name="DateOfApplication" ColumnName="DateOfApplication" />
+                <ScalarProperty Name="DateApprovalApplication" ColumnName="DateApprovalApplication" />
+                <ScalarProperty Name="Id_Registrar" ColumnName="Id_Registrar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deal">
+            <EntityTypeMapping TypeName="IssuerAccountModel.Deal">
+              <MappingFragment StoreEntitySet="Deal">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Security" ColumnName="Id_Security" />
+                <ScalarProperty Name="Id_Investor" ColumnName="Id_Investor" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Investor">
+            <EntityTypeMapping TypeName="IssuerAccountModel.Investor">
+              <MappingFragment StoreEntitySet="Investor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Issuer">
+            <EntityTypeMapping TypeName="IssuerAccountModel.Issuer">
+              <MappingFragment StoreEntitySet="Issuer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Id_Organization" ColumnName="Id_Organization" />
+                <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organization">
+            <EntityTypeMapping TypeName="IssuerAccountModel.Organization">
+              <MappingFragment StoreEntitySet="Organization">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registrar">
+            <EntityTypeMapping TypeName="IssuerAccountModel.Registrar">
+              <MappingFragment StoreEntitySet="Registrar">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Security">
+            <EntityTypeMapping TypeName="IssuerAccountModel.Security">
+              <MappingFragment StoreEntitySet="Security">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id_Issuer" ColumnName="Id_Issuer" />
+                <ScalarProperty Name="RegistrationStatus" ColumnName="RegistrationStatus" />
+                <ScalarProperty Name="Id_Registrar" ColumnName="Id_Registrar" />
+                <ScalarProperty Name="SaleStatus" ColumnName="SaleStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="IssuerAccountModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IssuerAccount.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace IssuerAccount.Pages
     /// </summary>
     public partial class PageMain : Page
     {
-        public PageMain()
+        public PageMain(Issuer issuer)
         {
             InitializeComponent();
         }

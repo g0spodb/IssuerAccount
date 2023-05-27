@@ -14,11 +14,10 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Background="#659DBD" Orientation="Horizontal">
             <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource PrimaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
-            <Button x:Name="btnFaq" Click="btnFaq_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource PrimaryButtonStyle}" Margin="1000 0 0 0">FAQ</Button>
+            <Button x:Name="btnFaq" Click="btnFaq_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource PrimaryButtonStyle}" Margin="1070 0 0 0" Content="FAQ" HorizontalAlignment="Right" />
         </StackPanel>
         <StackPanel Grid.Row="1" VerticalAlignment="Center">
-            <!--<Image Source="/Resourses/back.png" Opacity=".5" />-->
+            <Frame x:Name="frmMain" Grid.Row="1" NavigationUIVisibility="Hidden"/>
         </StackPanel>
-        <Frame x:Name="frmMain" Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
