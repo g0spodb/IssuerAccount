@@ -13,10 +13,11 @@
             <RowDefinition Height="565"/>
         </Grid.RowDefinitions>
         <Rectangle RadiusX="50" RadiusY="120" Fill="#B939D3" Width="400" Height="130" VerticalAlignment="Top" Margin="0 20 -100 0" HorizontalAlignment="Right" Grid.Row="0"/>
+        
         <StackPanel VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 20 0 0" Width="300" Height="130">
 
 
-            <Image MouseLeftButtonDown="img_prod_MouseLeftButtonDown" x:Name="img_prod" Width="100" Height="100" Stretch="UniformToFill" Margin="10">
+            <Image  x:Name="img_prod" Width="100" Height="100" Margin="20 10 10 10">
                 <Image.Source>
                     <Binding Path="Issuer.Photo">
                         <Binding.TargetNullValue>
@@ -25,15 +26,19 @@
                     </Binding>
                 </Image.Source>
             </Image>
-            <TextBlock Text="{Binding Issuer.FullName}" Height="40" Width="170" Margin="0 10 0 0" x:Name="FullName" TextWrapping="Wrap" FontSize="30">
+            <TextBlock Text="{Binding Issuer.FullName}" Height="40" Width="170" x:Name="FullName" TextWrapping="Wrap" FontSize="30">
             <Hyperlink NavigateUri="PagePersonalAccount.xaml"></Hyperlink></TextBlock>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Right" Margin="130 35 180 0" Width="100" Height="100" >
+            <Image Source="foncomplete.png" MouseLeftButtonDown="img_prod_MouseLeftButtonDown"  Width="100" Height="100" ></Image>
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10" Width="600" HorizontalAlignment="Left">
             <TextBlock Text="Основные возможности" FontSize="30" Height="30" Width="330" VerticalAlignment="Top" Foreground="AliceBlue"/>
-            <StackPanel VerticalAlignment="Top" HorizontalAlignment="left"  Orientation="Vertical" Margin="0 20 0 0" Width="600" Height="300" Background="#B939D3">
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="left"  Orientation="Vertical" Margin="0 20 0 0" Width="600" Height="400" Background="#B939D3">
                 <Button x:Name="btnAccount" Click="btnAccount_Click"  FontSize="30" Height="50" Margin="20 40 20 20" Style="{StaticResource MainButtonStyle}">Эмиссионный счёт</Button>
                 <Button x:Name="btnInvestors" Click="btnInvestors_Click"  FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}">Ваши инвесторы</Button>
                 <Button x:Name="btnDeal" Click="btnDeal_Click"  FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}">История покупок ваших ценных бумаг</Button>
+                <Button x:Name="btnSecurity" Click="btnSecurity_Click"  FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}">Ваши ценные бумаги</Button>
                 <StackPanel.Effect>
                     <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3"/>
                 </StackPanel.Effect>

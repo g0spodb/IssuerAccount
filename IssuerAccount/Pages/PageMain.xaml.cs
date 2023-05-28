@@ -47,7 +47,12 @@ namespace IssuerAccount.Pages
 
         private void img_prod_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new PagePersonalAccount());
+            NavigationService.Navigate(new PagePersonalAccount(Issuer));
+        }
+
+        private void btnSecurity_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageSecurityList(Issuer));
         }
     }
 }

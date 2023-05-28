@@ -1,5 +1,8 @@
-﻿using System;
+﻿using IssuerAccount.Model;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +23,26 @@ namespace IssuerAccount.Pages
     /// </summary>
     public partial class PagePersonalAccount : Page
     {
-        public PagePersonalAccount()
+        public Issuer Issuer { get; set; }
+        public PagePersonalAccount(Issuer issuer)
         {
             InitializeComponent();
+            Issuer = issuer;
+            this.DataContext = this;
+        }
+
+        private void AddPhoto_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog()
+            {
+                Filter = "*.jpg|*.jpg|*.png|*.png"
+            };
+            if (openFile.ShowDialog().GetValueOrDefault())
+            {
+                Issuer.Photo = File.ReadAllBytes(openFile.FileName);
+                IssuerPhoto.Source = new BitmapImage(new Uri(openFile.FileName));
+            }
+            db_connection.connection.SaveChanges();
         }
     }
 }
