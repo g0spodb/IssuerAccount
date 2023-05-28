@@ -57,6 +57,7 @@
           <Property Name="Phone" Type="varchar" MaxLength="500" />
           <Property Name="Id_Organization" Type="int" />
           <Property Name="Id_Account" Type="int" />
+          <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Organization">
           <Key>
@@ -322,6 +323,7 @@
           <NavigationProperty Name="AccountOpeningApplication" Relationship="Self.FK_AccountOpeningApplication_Issuer" FromRole="Issuer" ToRole="AccountOpeningApplication" />
           <NavigationProperty Name="Organization" Relationship="Self.FK_Issuer_Organization" FromRole="Issuer" ToRole="Organization" />
           <NavigationProperty Name="Security" Relationship="Self.FK_Security_Issuer" FromRole="Issuer" ToRole="Security" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Organization">
           <Key>
@@ -578,6 +580,7 @@
           <EntitySetMapping Name="Issuer">
             <EntityTypeMapping TypeName="IssuerAccountModel.Issuer">
               <MappingFragment StoreEntitySet="Issuer">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />

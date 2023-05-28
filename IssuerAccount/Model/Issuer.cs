@@ -29,6 +29,7 @@ namespace IssuerAccount.Model
         public string Phone { get; set; }
         public Nullable<int> Id_Organization { get; set; }
         public Nullable<int> Id_Account { get; set; }
+        public byte[] Photo { get; set; }
     
         public virtual Account Account { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

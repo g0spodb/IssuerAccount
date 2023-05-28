@@ -9,15 +9,13 @@
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="25*"/>
-            <RowDefinition Height="200*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="700"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Background="#659DBD" Orientation="Horizontal">
-            <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource PrimaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
-            <Button x:Name="btnFaq" Click="btnFaq_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource PrimaryButtonStyle}" Margin="1070 0 0 0" Content="FAQ" HorizontalAlignment="Right" />
+            <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
+            <Button x:Name="btnFaq" Click="btnFaq_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1070 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
         </StackPanel>
-        <StackPanel Grid.Row="1" VerticalAlignment="Center">
-            <Frame x:Name="frmMain" Grid.Row="1" NavigationUIVisibility="Hidden"/>
-        </StackPanel>
+        <Frame x:Name="frmMain" Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

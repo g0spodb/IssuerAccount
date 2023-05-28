@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IssuerAccount.Pages;
 
 namespace IssuerAccount.Pages
 {
@@ -21,9 +22,32 @@ namespace IssuerAccount.Pages
     /// </summary>
     public partial class PageMain : Page
     {
+        public Issuer Issuer { get; set; }
         public PageMain(Issuer issuer)
         {
             InitializeComponent();
+            Issuer = issuer;
+            this.DataContext = this;
+        }
+
+        private void btnAccount_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnInvestors_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDeal_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void img_prod_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new PagePersonalAccount());
         }
     }
 }
