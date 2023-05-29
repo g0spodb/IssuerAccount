@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using IssuerAccount.Pages;
 using System.Collections.ObjectModel;
+using IssuerAccount.Windows;
 
 namespace IssuerAccount.Pages
 {
@@ -26,20 +27,21 @@ namespace IssuerAccount.Pages
         public Issuer Issuer { get; set; }
         public PageMain(Issuer issuer)
         {
-            int i = 1;
             InitializeComponent();
             Issuer = issuer;
             this.DataContext = this;
             if (issuer.Id_Account != null)
             {
-                statusImage.Source = new BitmapImage(new Uri("/IssuerAccount;component/Resourses/galka.png", UriKind.Relative));
-                statusText.Text = "Счёт открыт, ваш баланс:";
+                //statusImage.Source = new BitmapImage(new Uri("/IssuerAccount;component/Resourses/galka.png", UriKind.Relative));
+                //statusText.Text = "Счёт открыт, ваш баланс:";
             }
             else
             {
-                statusImage.Source = new BitmapImage(new Uri("/IssuerAccount;component/Resourses/crest.png", UriKind.Relative));
-                statusText.Text = "У вас нет открытого счёта";
-                openAccount.Visibility = Visibility.Visible;
+                //statusImage.Source = new BitmapImage(new Uri("/IssuerAccount;component/Resourses/crest.png", UriKind.Relative));
+                //statusText.Text = "У вас нет открытого счёта";
+                //btnOpenAccount.Visibility = Visibility.Visible;
+                statusImage.Source = new BitmapImage(new Uri("/IssuerAccount;component/Resourses/galka.png", UriKind.Relative));
+                statusText.Text = "Счёт открыт, ваш баланс:";
             }
         }
 
@@ -66,6 +68,24 @@ namespace IssuerAccount.Pages
         private void btnSecurity_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PageSecurityList(Issuer));
+        }
+
+        private void btnOpenAccount_Click(object sender, RoutedEventArgs e)
+        {
+            IssuerAccount.Windows.ConfirmationWindow confirmationWindow = new IssuerAccount.Windows.ConfirmationWindow(); // Создание экземпляра окна ConfirmationWindow
+            confirmationWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            confirmationWindow.ShowDialog(); 
+
+
+
+            if (confirmationWindow.isConfirmed)
+            {
+                NavigationService.Navigate(new PageSecurityList(Issuer));
+            }
+            else
+            {
+                // Логика выполнения при выборе "Нет"
+            }
         }
     }
 }
