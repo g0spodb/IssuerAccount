@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using IssuerAccount.Pages;
+using System.Collections.ObjectModel;
 
 namespace IssuerAccount.Pages
 {
@@ -25,9 +26,21 @@ namespace IssuerAccount.Pages
         public Issuer Issuer { get; set; }
         public PageMain(Issuer issuer)
         {
+            int i = 1;
             InitializeComponent();
             Issuer = issuer;
             this.DataContext = this;
+            if (issuer.Id_Account != null)
+            {
+                statusImage.Source = new BitmapImage(new Uri("/IssuerAccount;component/Resourses/galka.png", UriKind.Relative));
+                statusText.Text = "Счёт открыт, ваш баланс:";
+            }
+            else
+            {
+                statusImage.Source = new BitmapImage(new Uri("/IssuerAccount;component/Resourses/crest.png", UriKind.Relative));
+                statusText.Text = "У вас нет открытого счёта";
+                openAccount.Visibility = Visibility.Visible;
+            }
         }
 
         private void btnAccount_Click(object sender, RoutedEventArgs e)

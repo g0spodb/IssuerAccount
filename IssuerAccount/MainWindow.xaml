@@ -5,17 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IssuerAccount"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1400" FontFamily="Tahoma" Background="black">
-    
+        Title="Личный кабинет эмитента" Height="800" Width="1400" FontFamily="Tahoma" Background="#5A016D" ResizeMode="NoResize">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="700"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Background="#659DBD" Orientation="Horizontal">
-            <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
-            <Button x:Name="btnFaq" Click="btnFaq_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1070 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
+        <StackPanel Grid.Row="0" Background="#5A016D" Orientation="Horizontal">
         </StackPanel>
+        <Border Background="#66FCF1" Grid.Row="0" CornerRadius="50" Width="1450" Margin="-25 -9 -25 0">
+            <StackPanel Grid.Row="0" Background="#66FCF1" Orientation="Horizontal" Width="1350" >
+                <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
+                <Button x:Name="btnFaq" Click="btnFaq_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1030 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
+            </StackPanel>
+        </Border>
         <Frame x:Name="frmMain" Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

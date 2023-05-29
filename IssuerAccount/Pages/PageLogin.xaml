@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1400"
-      Title="PageLogin" Background="#659DBD" FontFamily="Bahnschrift SemiBold">
+      Title="PageLogin" Background="#5A016D" FontFamily="Bahnschrift SemiBold">
 
     <Grid>
         <TextBlock  HorizontalAlignment="Center" Margin="0 40 0 0" FontSize="35" Foreground="white" FontFamily="Bahnschrift SemiBold" > Вход в аккаунт</TextBlock>

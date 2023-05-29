@@ -17,26 +17,22 @@ using System.Windows.Shapes;
 namespace IssuerAccount.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для PageSecurityList.xaml
+    /// Логика взаимодействия для PageSaleSecurity.xaml
     /// </summary>
-    public partial class PageSecurityList : Page
+    public partial class PageSaleSecurity : Page
     {
         public Issuer Issuer { get; set; }
-        public PageSecurityList(Issuer issuer)
+        public PageSaleSecurity(Issuer issuer)
         {
             InitializeComponent();
+
             Issuer = issuer;
             this.DataContext = this;
         }
 
-        private void LViewSecurities_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btnSale_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void btnSaleSecurity_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new PageSaleSecurity(Issuer));
         }
     }
 }

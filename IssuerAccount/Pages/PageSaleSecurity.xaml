@@ -1,0 +1,30 @@
+﻿<Page x:Class="IssuerAccount.Pages.PageSaleSecurity"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IssuerAccount.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1400"
+      Title="PageSaleSecurity" Background="#5A016D" FontFamily="Bahnschrift SemiBold">
+
+    <Grid>
+        <StackPanel Margin="0 40 0 0" Width="500" Background="#41B3A3" Height="610">
+
+            <TextBlock FontSize="27" Text="Название" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <TextBox x:Name="tbFullName" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+
+            <TextBlock FontSize="27" Text="Количество" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <TextBox x:Name="tbLogin" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+            
+            <TextBlock FontSize="27" Text="Цена" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <TextBox x:Name="tbPrice" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+
+            <Button x:Name="btnSale" Click="btnSale_Click" Style="{StaticResource CreateButtonStyle}" Content="Выставить на продажу" Margin="15 50 0 0" Width="450" HorizontalAlignment="Left" Height="50" FontSize="27"></Button>
+
+            <StackPanel.Effect>
+                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3"/>
+            </StackPanel.Effect>
+        </StackPanel>
+    </Grid>
+</Page>

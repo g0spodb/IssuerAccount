@@ -89,6 +89,7 @@
           <Property Name="RegistrationStatus" Type="bit" />
           <Property Name="Id_Registrar" Type="int" />
           <Property Name="SaleStatus" Type="bit" />
+          <Property Name="Price" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -361,6 +362,7 @@
           <NavigationProperty Name="Deal" Relationship="Self.FK_Deal_Security" FromRole="Security" ToRole="Deal" />
           <NavigationProperty Name="Issuer" Relationship="Self.FK_Security_Issuer" FromRole="Security" ToRole="Issuer" />
           <NavigationProperty Name="Registrar" Relationship="Self.FK_Security_Registrar" FromRole="Security" ToRole="Registrar" />
+          <Property Name="Price" Type="Int32" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -615,6 +617,7 @@
           <EntitySetMapping Name="Security">
             <EntityTypeMapping TypeName="IssuerAccountModel.Security">
               <MappingFragment StoreEntitySet="Security">
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />

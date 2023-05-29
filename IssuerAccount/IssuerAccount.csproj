@@ -95,6 +95,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageSaleSecurity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PageSecurityList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +160,9 @@
     <Compile Include="Pages\PageRegistration.xaml.cs">
       <DependentUpon>PageRegistration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageSaleSecurity.xaml.cs">
+      <DependentUpon>PageSaleSecurity.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageSecurityList.xaml.cs">
       <DependentUpon>PageSecurityList.xaml</DependentUpon>
     </Compile>
@@ -212,6 +219,8 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resourses\galka.png" />
+    <Resource Include="Resourses\crest.png" />
     <Resource Include="Pages\foncomplete.png" />
     <Resource Include="Pages\rwq.png" />
   </ItemGroup>

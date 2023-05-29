@@ -12,15 +12,17 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Button x:Name="btnSaleSecurity" Click="btnSaleSecurity_Click" Grid.Column="1" Grid.Row="0" Height="50" Width="300" Style="{StaticResource SecondaryButtonStyle}">Продать ценную бумагу</Button>
         
         
-        
-        <ListView ItemsSource="{Binding Securities}" Grid.Column="1" Grid.Row="1" Background="{x:Null}" BorderBrush="{x:Null}" >
+        <ListView ItemsSource="{Binding Securities}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Background="{x:Null}" BorderBrush="{x:Null}" >
 
             <ListView.Resources>
                 <Style TargetType="GridViewColumnHeader">

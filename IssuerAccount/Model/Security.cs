@@ -28,6 +28,7 @@ namespace IssuerAccount.Model
         public Nullable<bool> RegistrationStatus { get; set; }
         public Nullable<int> Id_Registrar { get; set; }
         public Nullable<bool> SaleStatus { get; set; }
+        public Nullable<int> Price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Deal> Deal { get; set; }
