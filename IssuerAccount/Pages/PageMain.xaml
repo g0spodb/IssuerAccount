@@ -21,7 +21,7 @@
                 <Image.Source>
                     <Binding Path="Issuer.Photo">
                         <Binding.TargetNullValue>
-                            <ImageSource>/IssuerAccount;component/Resourses/rwq.png</ImageSource>
+                            <ImageSource>/IssuerAccount;component/Resourses/emp.png</ImageSource>
                         </Binding.TargetNullValue>
                     </Binding>
                 </Image.Source>
@@ -34,7 +34,7 @@
         </StackPanel>
 
 
-        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10" Width="600" HorizontalAlignment="Left">
+        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10" Width="600" HorizontalAlignment="Left" x:Name="sppos">
             <TextBlock Text="Основные возможности" FontSize="30" Height="30" Width="330" VerticalAlignment="Top" Foreground="AliceBlue"/>
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center"  Orientation="Vertical" Margin="0 20 0 0" Width="600" Height="400" Background="#B939D3">
                 <Button x:Name="btnAccount" Click="btnAccount_Click"  FontSize="30" Height="50" Margin="20 40 20 20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">Эмиссионный счёт</Button>
@@ -46,13 +46,23 @@
                 </StackPanel.Effect>
             </StackPanel>
         </StackPanel>
+        <StackPanel Orientation="Vertical" x:Name="sptu" Grid.Row="1" Margin="180 60 0 0" Background="#B939D3" Visibility="Hidden"  HorizontalAlignment="Center"  VerticalAlignment="Top" Width="300" Height="250">
+            <TextBlock Text="Пополнить на сумму :" FontSize="24" Height="30" Width="237" VerticalAlignment="Top" Margin="20" Foreground="AliceBlue"/>
+            <TextBox x:Name="tbsum" Width="240" Height="50" VerticalAlignment="Top" Margin="10" FontSize="24" Foreground="AliceBlue" Background="#5A016D" BorderBrush="AliceBlue"/>
+            <Button x:Name="btnAccept" Click="btnAccept_Click"  Style="{StaticResource MainButtonStyle}" Margin="10 50 10 10" FontSize="25" Height="40" Width="250">Пополнить</Button>
+            <StackPanel.Effect>
+                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3"/>
+            </StackPanel.Effect>
+        </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10 10 60 10" Width="300" HorizontalAlignment="Right">
             <TextBlock Text="Текущий статус счёта" FontSize="30" Height="30" Foreground="AliceBlue"/>
             <Border CornerRadius="90" Width="300" Height="400" Background="#B939D3" Margin="0 20 0 0" >
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center"  Orientation="Vertical" Width="300" Height="400">
-                    <Image x:Name="statusImage" Width="150" Height="150" Margin="20"></Image>
-                    <TextBlock x:Name="statusText" FontSize="18" Height="80" HorizontalAlignment="Center"  VerticalAlignment="Top" Foreground="AliceBlue"/>
-                    <Button x:Name="btnOpenAccount" Click="btnOpenAccount_Click" Style="{StaticResource MainButtonStyle}" FontSize="25" Visibility="Hidden" VerticalAlignment ="Bottom" Height="60" Width="250">Открыть счёт</Button>
+                    <Image x:Name="statusImage" Width="130" Height="130" Margin="20"></Image>
+                    <TextBlock x:Name="statusText" FontSize="18" Height="40" HorizontalAlignment="Center"  VerticalAlignment="Top" Foreground="AliceBlue"/>
+                    <TextBlock x:Name="tbbal" Text="{Binding Issuer.Account.Balance}" FontSize="18" Height="40" HorizontalAlignment="Center"  Visibility="Hidden" VerticalAlignment="Top" Foreground="AliceBlue"/>
+                    <Button x:Name="btnTopUpBalance" Click="btnTopUpBalance_Click"  Style="{StaticResource MainButtonStyle}" FontSize="25" Visibility="Hidden" Height="60" Width="250">Пополнить баланс</Button>
+                    <Button x:Name="btnOpenAccount" Click="btnOpenAccount_Click" Style="{StaticResource MainButtonStyle}" FontSize="25" Visibility="Hidden" VerticalAlignment ="Bottom" Height="60" Width="250" Cursor="Hand">Открыть счёт</Button>
                 </StackPanel>
                 <Border.Effect>
                     <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3"/>

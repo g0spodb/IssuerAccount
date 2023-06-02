@@ -32,6 +32,7 @@ namespace IssuerAccount.Pages
             var a = new Issuer();
             a.FullName = tbFullName.Text;
             a.Phone = tbPhone.Text;
+            a.Adress = tbAdress.Text;
             a.Login = tbLogin.Text;
             a.Password = pbPassword.Password;
             db_connection.connection.Issuer.Add(a);

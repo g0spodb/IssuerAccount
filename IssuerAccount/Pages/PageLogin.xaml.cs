@@ -23,6 +23,7 @@ namespace IssuerAccount.Pages
     public partial class PageLogin : Page
     {
         public static ObservableCollection<Issuer> issuers { get; set; }
+        public static ObservableCollection<Registrar> registrar { get; set; }
         public PageLogin()
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace IssuerAccount.Pages
         private void btnlogin_Click(object sender, RoutedEventArgs e)
         {
             issuers = new ObservableCollection<Issuer>(db_connection.connection.Issuer.ToList());
+            registrar = new ObservableCollection<Registrar>(db_connection.connection.Registrar.ToList());
             var z = issuers.Where(a => a.Login == tbLogin.Text && a.Password == pbPassword.Password).FirstOrDefault();
             if (z != null)
             {
@@ -38,8 +40,17 @@ namespace IssuerAccount.Pages
                 NavigationService.Navigate(new PageMain(z));
             }
             else
-            {
-                MessageBox.Show("Пользователь не найден");
+            { 
+                var r = registrar.Where(o => o.Login == tbLogin.Text && o.Password == pbPassword.Password).FirstOrDefault();
+                if ( r != null)
+                {
+                    NavigationService.Navigate(new PageRegistrar(r));
+                }
+                else
+                {
+
+                    MessageBox.Show("Неверно введен логин или пароль");
+                }
             }
         }
 

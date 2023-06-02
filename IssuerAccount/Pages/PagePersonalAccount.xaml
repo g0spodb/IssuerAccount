@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1400"
-      Title="PagePersonalAccount" Background="#659DBD" FontFamily="Bahnschrift SemiBold">
+      Title="PagePersonalAccount" Background="#5A016D" FontFamily="Bahnschrift SemiBold" Foreground="AliceBlue">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -21,17 +21,17 @@
             <Image x:Name="IssuerPhoto" Grid.Row="1" Width="150" Height="150" Source="{Binding Issuer.Photo}" Stretch="UniformToFill"></Image>
             <Button x:Name="AddPhoto" Click="AddPhoto_Click" Width="150" FontSize="18" Height="40" Style="{StaticResource SecondaryButtonStyle}">Добавить фото</Button>
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="1" Height="400" VerticalAlignment="Top" Orientation="Vertical" HorizontalAlignment="Left">
-            <Label FontSize="30">Ваше ФИО</Label>
-            <TextBlock Text="{Binding Issuer.FullName}" x:Name="FullName" Width="300" TextWrapping="Wrap" FontSize="30" Height="30"/>
-            <Label FontSize="30">Адрес</Label>
-            <TextBlock Text="{Binding Issuer.Adress}"  Width="300" x:Name="Adress" FontSize="30" Height="30" />
-            <Label FontSize="30">Телефон</Label>
-            <TextBlock Text="{Binding Issuer.Phone}"  Width="300" x:Name="Phone" FontSize="30" Height="30" />
-            <Label FontSize="30">Логин</Label>
-            <TextBlock Text="{Binding Issuer.Login}" x:Name="Login" FontSize="30" Height="30" />
-            <Label FontSize="30">Пароль</Label>
-            <TextBlock Text="{Binding Issuer.Password}" x:Name="Password" FontSize="30" Height="30"/>
+        <StackPanel Grid.Column="1" Grid.Row="1" Height="800" VerticalAlignment="Top" Orientation="Vertical" HorizontalAlignment="Left">
+            <TextBlock FontSize="30" Height="35">Ваше ФИО</TextBlock>
+            <TextBlock Text="{Binding Issuer.FullName}" x:Name="FullName" Width="400" TextWrapping="Wrap" FontSize="30" Height="72"/>
+            <TextBlock FontSize="30" Height="35">Адрес</TextBlock>
+            <TextBlock Text="{Binding Issuer.Adress}"  Width="300" x:Name="Adress" FontSize="30" Height="60" />
+            <TextBlock FontSize="30" Height="35">Телефон</TextBlock>
+            <TextBlock Text="{Binding Issuer.Phone}"  Width="300" x:Name="Phone" HorizontalAlignment="Left" FontSize="30" Height="60" />
+            <TextBlock FontSize="30" Height="35">Логин</TextBlock>
+            <TextBlock Text="{Binding Issuer.Login}" x:Name="Login" FontSize="30" Height="60" />
+            <TextBlock FontSize="30" Height="30">Пароль</TextBlock>
+            <TextBlock Text="{Binding Issuer.Password}" x:Name="Password" FontSize="30" Height="60"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Left">
             

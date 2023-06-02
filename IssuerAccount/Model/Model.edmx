@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Balance" Type="int" />
           <Property Name="OpeningDate" Type="date" />
         </EntityType>
@@ -17,7 +17,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_Issuer" Type="int" />
           <Property Name="RegistrationStatus" Type="bit" />
           <Property Name="DateOfApplication" Type="date" />
@@ -76,6 +76,8 @@
           <Property Name="FullName" Type="varchar" MaxLength="600" />
           <Property Name="Adress" Type="varchar" MaxLength="500" />
           <Property Name="Phone" Type="varchar" MaxLength="100" />
+          <Property Name="Login" Type="varchar" MaxLength="500" />
+          <Property Name="Password" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Security">
           <Key>
@@ -346,6 +348,8 @@
           <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="AccountOpeningApplication" Relationship="Self.FK_AccountOpeningApplication_Registrar" FromRole="Registrar" ToRole="AccountOpeningApplication" />
           <NavigationProperty Name="Security" Relationship="Self.FK_Security_Registrar" FromRole="Registrar" ToRole="Security" />
+          <Property Name="Login" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Security">
           <Key>
@@ -607,6 +611,8 @@
           <EntitySetMapping Name="Registrar">
             <EntityTypeMapping TypeName="IssuerAccountModel.Registrar">
               <MappingFragment StoreEntitySet="Registrar">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="Adress" ColumnName="Adress" />

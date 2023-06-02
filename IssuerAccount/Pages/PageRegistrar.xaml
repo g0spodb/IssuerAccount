@@ -1,0 +1,26 @@
+﻿<Page x:Class="IssuerAccount.Pages.PageRegistrar"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IssuerAccount.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="695" d:DesignWidth="1400"
+      Title="PageRegistrar" Background="#5A016D" FontFamily="Bahnschrift SemiBold">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10" Width="600" HorizontalAlignment="Left">
+            <TextBlock Text="Функции регистратора" FontSize="30" Height="30" Width="330" VerticalAlignment="Top" Foreground="AliceBlue"/>
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center"  Orientation="Vertical" Margin="0 20 0 0" Width="600" Height="400" Background="#B939D3">
+                <Button x:Name="btnAccountOpening" Click="btnAccountOpening_Click"  FontSize="30" Height="50" Margin="20 40 20 20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">Открыть счет эмитента</Button>
+                <StackPanel.Effect>
+                    <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3"/>
+                </StackPanel.Effect>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Page>

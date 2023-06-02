@@ -67,6 +67,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Pages\PageAccountOpening.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageRegistrar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\ConfirmationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -78,6 +86,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pages\PageAccountOpening.xaml.cs">
+      <DependentUpon>PageAccountOpening.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageRegistrar.xaml.cs">
+      <DependentUpon>PageRegistrar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\ConfirmationWindow.xaml.cs">
       <DependentUpon>ConfirmationWindow.xaml</DependentUpon>
@@ -226,6 +240,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resourses\emp.png" />
     <Resource Include="Resourses\galka.png" />
     <Resource Include="Resourses\crest.png" />
     <Resource Include="Pages\foncomplete.png" />

@@ -24,7 +24,9 @@ namespace IssuerAccount.Pages
     /// </summary>
     public partial class PageMain : Page
     {
+        //public static ObservableCollection<AccountOpeningApplication> accountOpeningApplication { get; set; }
         public Issuer Issuer { get; set; }
+        public AccountOpeningApplication accountOpeningApplication { get; set; }
         public PageMain(Issuer issuer)
         {
             InitializeComponent();
@@ -32,19 +34,20 @@ namespace IssuerAccount.Pages
             this.DataContext = this;
             if (issuer.Id_Account != null)
             {
-                //statusImage.Source = new BitmapImage(new Uri("/IssuerAccount;component/Resourses/galka.png", UriKind.Relative));
-                //statusText.Text = "Счёт открыт, ваш баланс:";
+                statusImage.Source = new BitmapImage(new Uri("/IssuerAccount;component/Resourses/galka.png", UriKind.Relative));
+                statusText.Text = "Ваш счет открыт, баланс:";
+                tbbal.Visibility = Visibility.Visible;
+                btnTopUpBalance.Visibility = Visibility.Visible;
+            
             }
             else
             {
-                //statusImage.Source = new BitmapImage(new Uri("/IssuerAccount;component/Resourses/crest.png", UriKind.Relative));
-                //statusText.Text = "У вас нет открытого счёта";
-                //btnOpenAccount.Visibility = Visibility.Visible;
-                statusImage.Source = new BitmapImage(new Uri("/IssuerAccount;component/Resourses/galka.png", UriKind.Relative));
-                statusText.Text = "Счёт открыт, ваш баланс:";
+                statusImage.Source = new BitmapImage(new Uri("/IssuerAccount;component/Resourses/crest.png", UriKind.Relative));
+                statusText.Text = "У вас нет открытого счёта";
+                btnOpenAccount.Visibility = Visibility.Visible;
             }
         }
-
+        
         private void btnAccount_Click(object sender, RoutedEventArgs e)
         {
 
@@ -80,12 +83,34 @@ namespace IssuerAccount.Pages
 
             if (confirmationWindow.isConfirmed)
             {
-                NavigationService.Navigate(new PageSecurityList(Issuer));
+                var a = new AccountOpeningApplication();
+                a.Id_Issuer = Issuer.Id;
+                a.RegistrationStatus = false;
+                a.DateOfApplication = DateTime.Now;
+                db_connection.connection.AccountOpeningApplication.Add(a);
+                db_connection.connection.SaveChanges();
+                MessageBox.Show("Ваша заявка успешно создана, ожидайте подтверждения");
+
             }
             else
             {
                 // Логика выполнения при выборе "Нет"
             }
+        }
+
+        private void btnTopUpBalance_Click(object sender, RoutedEventArgs e)
+        {
+            sppos.Visibility = Visibility.Hidden;
+            sptu.Visibility = Visibility.Visible;
+        }
+
+        private void btnAccept_Click(object sender, RoutedEventArgs e)
+        {
+            var Account = db_connection.connection.Account.FirstOrDefault(q => q.Id == Issuer.Id_Account);
+            Account.Balance = Convert.ToInt32(tbsum.Text);
+            db_connection.connection.SaveChanges();
+            sppos.Visibility = Visibility.Visible;
+            sptu.Visibility = Visibility.Hidden;
         }
     }
 }
