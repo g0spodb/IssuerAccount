@@ -71,6 +71,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageInvestor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageInvestorAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageInvestors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageIssuers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PagePendingSecurities.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PageRegistrar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,6 +109,21 @@
     </Compile>
     <Compile Include="Pages\PageAccountOpening.xaml.cs">
       <DependentUpon>PageAccountOpening.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageInvestor.xaml.cs">
+      <DependentUpon>PageInvestor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageInvestorAccount.xaml.cs">
+      <DependentUpon>PageInvestorAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageInvestors.xaml.cs">
+      <DependentUpon>PageInvestors.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageIssuers.xaml.cs">
+      <DependentUpon>PageIssuers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PagePendingSecurities.xaml.cs">
+      <DependentUpon>PagePendingSecurities.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageRegistrar.xaml.cs">
       <DependentUpon>PageRegistrar.xaml</DependentUpon>
@@ -243,7 +278,7 @@
     <Resource Include="Resourses\emp.png" />
     <Resource Include="Resourses\galka.png" />
     <Resource Include="Resourses\crest.png" />
-    <Resource Include="Pages\foncomplete.png" />
+    <Resource Include="Resourses\foncomplete.png" />
     <Resource Include="Resourses\rwq.png" />
   </ItemGroup>
   <ItemGroup>

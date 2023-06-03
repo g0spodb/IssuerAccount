@@ -24,7 +24,6 @@ namespace IssuerAccount.Pages
     /// </summary>
     public partial class PageMain : Page
     {
-        //public static ObservableCollection<AccountOpeningApplication> accountOpeningApplication { get; set; }
         public Issuer Issuer { get; set; }
         public AccountOpeningApplication accountOpeningApplication { get; set; }
         public PageMain(Issuer issuer)
@@ -94,7 +93,6 @@ namespace IssuerAccount.Pages
             }
             else
             {
-                // Логика выполнения при выборе "Нет"
             }
         }
 
@@ -107,10 +105,11 @@ namespace IssuerAccount.Pages
         private void btnAccept_Click(object sender, RoutedEventArgs e)
         {
             var Account = db_connection.connection.Account.FirstOrDefault(q => q.Id == Issuer.Id_Account);
-            Account.Balance = Convert.ToInt32(tbsum.Text);
+            Account.Balance = Account.Balance + Convert.ToInt32(tbsum.Text);
             db_connection.connection.SaveChanges();
             sppos.Visibility = Visibility.Visible;
             sptu.Visibility = Visibility.Hidden;
+            NavigationService.Navigate(new PageMain(Issuer));
         }
     }
 }

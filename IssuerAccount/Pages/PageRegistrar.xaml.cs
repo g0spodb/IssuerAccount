@@ -33,5 +33,20 @@ namespace IssuerAccount.Pages
         {
             NavigationService.Navigate(new PageAccountOpening(Registrar));
         }
+
+        private void btnIssuers_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageIssuers());
+        }
+
+        private void btnInvestors_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageInvestors());
+        }
+
+        private void btnSecurities_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PagePendingSecurities(Registrar));
+        }
     }
 }

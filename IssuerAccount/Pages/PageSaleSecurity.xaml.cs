@@ -1,4 +1,4 @@
-﻿using IssuerAccount.Model;
+﻿ using IssuerAccount.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +32,27 @@ namespace IssuerAccount.Pages
 
         private void btnSale_Click(object sender, RoutedEventArgs e)
         {
-
+            var Account = db_connection.connection.Account.FirstOrDefault(q => q.Id == Issuer.Id_Account);
+            int i = (int)Account.Balance;
+            if (i > Convert.ToInt32(tbPrice.Text))
+            {
+                var a = new Security
+                {
+                    Name = tbName.Text,
+                    Quantity = Convert.ToInt32(tbQuantity.Text),
+                    Price = Convert.ToInt32(tbPrice.Text),
+                    Id_Issuer = Issuer.Id,
+                    Date = DateTime.Now
+                };
+                Account.Balance = Account.Balance - (Convert.ToInt32(tbPrice.Text));
+                db_connection.connection.Security.Add(a);
+                db_connection.connection.SaveChanges();
+                MessageBox.Show("Ценная бумага успешно выставлена на продажу, ожидайте проверки");
+            }
+            else
+            {
+                MessageBox.Show("У вас недостаточно средств");
+            }
         }
     }
 }

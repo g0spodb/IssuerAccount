@@ -33,9 +33,12 @@ namespace IssuerAccount.Pages
             this.DataContext = this;
         }
 
-        public void cb_Checked(object sender, RoutedEventArgs e)
+        private void btnAccOpen_Click(object sender, RoutedEventArgs e)
         {
+            
             var selectedItem = (AccountOpeningApplication)lv.SelectedItem;
+            if (selectedItem != null)
+            { 
             selectedItem.RegistrationStatus = true;
             selectedItem.DateApprovalApplication = DateTime.Now;
             selectedItem.Id_Registrar = Registrar.Id;
@@ -53,7 +56,14 @@ namespace IssuerAccount.Pages
             else { }
             db_connection.connection.SaveChanges();
             MessageBox.Show("Вы зарегестрировали эмитента " + issuer.FullName);
-
+                accountOpeningApplications = new ObservableCollection<AccountOpeningApplication>(db_connection.connection.AccountOpeningApplication.Where(c => c.RegistrationStatus == false).ToList());
+                lv.ItemsSource = accountOpeningApplications;
+                lv.Items.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Выберите заявку");
+            }
         }
     }
 }

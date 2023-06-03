@@ -24,6 +24,7 @@ namespace IssuerAccount.Pages
     {
         public static ObservableCollection<Issuer> issuers { get; set; }
         public static ObservableCollection<Registrar> registrar { get; set; }
+        public static ObservableCollection<Investor> investors { get; set; }
         public PageLogin()
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace IssuerAccount.Pages
         {
             issuers = new ObservableCollection<Issuer>(db_connection.connection.Issuer.ToList());
             registrar = new ObservableCollection<Registrar>(db_connection.connection.Registrar.ToList());
+            investors = new ObservableCollection<Investor>(db_connection.connection.Investor.ToList());
             var z = issuers.Where(a => a.Login == tbLogin.Text && a.Password == pbPassword.Password).FirstOrDefault();
             if (z != null)
             {
@@ -42,14 +44,21 @@ namespace IssuerAccount.Pages
             else
             { 
                 var r = registrar.Where(o => o.Login == tbLogin.Text && o.Password == pbPassword.Password).FirstOrDefault();
-                if ( r != null)
+                if (r != null)
                 {
+                    MessageBox.Show("Добро пожаловать, " + r.FullName);
                     NavigationService.Navigate(new PageRegistrar(r));
                 }
                 else
                 {
-
-                    MessageBox.Show("Неверно введен логин или пароль");
+                    var n = investors.Where(i => i.Login == tbLogin.Text && i.Password == pbPassword.Password).FirstOrDefault();
+                    if (n != null)
+                        {
+                        MessageBox.Show("Добро пожаловать, инвестор " + n.FullName);
+                        NavigationService.Navigate(new PageInvestor(n));
+                    }
+                    else { MessageBox.Show("Неверно введен логин или пароль"); }
+                    
                 }
             }
         }

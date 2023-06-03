@@ -1,6 +1,7 @@
 ﻿using IssuerAccount.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,10 +23,12 @@ namespace IssuerAccount.Pages
     public partial class PageSecurityList : Page
     {
         public Issuer Issuer { get; set; }
+        public static ObservableCollection<Security> securities { get; set; }
         public PageSecurityList(Issuer issuer)
         {
             InitializeComponent();
             Issuer = issuer;
+            securities = new ObservableCollection<Security>(db_connection.connection.Security.Where(c => c.RegistrationStatus == true && c.Id_Issuer == Issuer.Id).ToList());
             this.DataContext = this;
         }
 

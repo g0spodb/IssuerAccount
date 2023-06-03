@@ -44,5 +44,28 @@ namespace IssuerAccount.Pages
             }
             db_connection.connection.SaveChanges();
         }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            spedit.Visibility = Visibility.Visible;
+        }
+
+        private void btnEditConf_Click(object sender, RoutedEventArgs e)
+        {
+            Issuer.FullName = tbFullName.Text;
+            Issuer.Phone = tbPhone.Text;
+            Issuer.Adress = tbAdress.Text;
+            Issuer.Login = tbLogin.Text;
+            Issuer.Password = pbPassword.Text;
+            db_connection.connection.SaveChanges();
+            MessageBox.Show("Ваши данные успешно изменены");
+            NavigationService.Navigate(new PagePersonalAccount(Issuer));
+            spedit.Visibility = Visibility.Hidden;
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            spedit.Visibility = Visibility.Hidden;
+        }
     }
 }

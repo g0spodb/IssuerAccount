@@ -25,6 +25,13 @@
             <TextBox x:Name="tbAdress" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
             <TextBlock FontSize="27" Text="Ваш номер телефона" Foreground="white" Margin="15 10 0 0"></TextBlock>
             <TextBox x:Name="tbPhone" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+            <StackPanel Orientation="Horizontal">
+            <TextBlock FontSize="23" Text="Зарегистрироваться как:" Foreground="white" Margin="15 10 0 0" Width="270" HorizontalAlignment="Left"></TextBlock>
+                <ComboBox x:Name="cb" Height="30" Width="200" VerticalAlignment="Bottom" SelectionChanged="cb_SelectionChanged">
+                    <ComboBoxItem Content="Эмитент"/>
+                    <ComboBoxItem Content="Инвестор"/> 
+                </ComboBox>
+            </StackPanel>
             <Button x:Name="btnReg" Click="BtnReg_Click" Content="Зарегистрироваться" Margin="15 50 0 0" Width="450" HorizontalAlignment="Left" Height="50" FontSize="27" Foreground="AliceBlue" Background="#C38D9E" ></Button>
             
             <StackPanel.Effect>

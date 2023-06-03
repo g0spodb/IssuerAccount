@@ -10,32 +10,68 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition />
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="10">
-            <Image x:Name="IssuerPhoto" Grid.Row="1" Width="150" Height="150" Source="{Binding Issuer.Photo}" Stretch="UniformToFill"></Image>
-            <Button x:Name="AddPhoto" Click="AddPhoto_Click" Width="150" FontSize="18" Height="40" Style="{StaticResource SecondaryButtonStyle}">Добавить фото</Button>
+        <Button x:Name="btnEdit" Click="btnEdit_Click" Width="250" FontSize="18" Height="45" Style="{StaticResource MainButtonStyle}">Редактировать информацию</Button>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical" Width="650" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="10">
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <StackPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Left">
+                    <TextBlock FontSize="30" Height="60" Width="450">Ваше ФИО</TextBlock>
+                    <TextBlock Text="{Binding Issuer.FullName}" Width="450" x:Name="FullName" TextWrapping="Wrap" FontSize="30" Height="72"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Right">
+                    <Image x:Name="IssuerPhoto" Margin="10" Grid.Row="1" Width="150" Height="150" Source="{Binding Issuer.Photo}" Stretch="UniformToFill"></Image>
+                    <Button x:Name="AddPhoto" Margin="10" Click="AddPhoto_Click" Width="150" FontSize="18" Height="40" HorizontalAlignment="Center" Style="{StaticResource SecondaryButtonStyle}">Добавить фото</Button>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock FontSize="30" Height="30">Адрес</TextBlock>
+            <TextBlock Text="{Binding Issuer.Adress}"  Width="300" x:Name="Adress" HorizontalAlignment="Left" FontSize="30" Height="60" />
+            <TextBlock FontSize="30" Height="30">Телефон</TextBlock>
+            <TextBlock Text="{Binding Issuer.Phone}"  Width="300" x:Name="Phone" HorizontalAlignment="Left" FontSize="30" Height="60" />
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <StackPanel Orientation="Vertical" Width="300" Grid.Row="1" HorizontalAlignment="Right">
+                    <TextBlock FontSize="30" Height="30">Логин</TextBlock>
+                    <TextBlock Text="{Binding Issuer.Login}" x:Name="Login" FontSize="30" Height="60" />
+                    </StackPanel>
+                <StackPanel Orientation="Vertical" Width="300" Grid.Row="1" HorizontalAlignment="Right">
+                        <TextBlock FontSize="30" Height="30">Пароль</TextBlock>
+                        <TextBlock Text="{Binding Issuer.Password}" x:Name="Password" FontSize="30" Height="60"/>
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" Height="800" VerticalAlignment="Top" Orientation="Vertical" HorizontalAlignment="Left">
-            <TextBlock FontSize="30" Height="35">Ваше ФИО</TextBlock>
-            <TextBlock Text="{Binding Issuer.FullName}" x:Name="FullName" Width="400" TextWrapping="Wrap" FontSize="30" Height="72"/>
-            <TextBlock FontSize="30" Height="35">Адрес</TextBlock>
-            <TextBlock Text="{Binding Issuer.Adress}"  Width="300" x:Name="Adress" FontSize="30" Height="60" />
-            <TextBlock FontSize="30" Height="35">Телефон</TextBlock>
-            <TextBlock Text="{Binding Issuer.Phone}"  Width="300" x:Name="Phone" HorizontalAlignment="Left" FontSize="30" Height="60" />
-            <TextBlock FontSize="30" Height="35">Логин</TextBlock>
-            <TextBlock Text="{Binding Issuer.Login}" x:Name="Login" FontSize="30" Height="60" />
-            <TextBlock FontSize="30" Height="30">Пароль</TextBlock>
-            <TextBlock Text="{Binding Issuer.Password}" x:Name="Password" FontSize="30" Height="60"/>
-        </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Left">
-            
         </StackPanel>
 
+
+        <StackPanel x:Name="spedit" Visibility="Hidden" Margin="0 40 0 0" Width="500" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Background="#B939D3" Height="610">
+
+            <TextBlock FontSize="27" Text="Ваше ФИО" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <TextBox x:Name="tbFullName" Height="40" Background="White" Foreground="#41B3A3" Text="{Binding Issuer.FullName}"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+
+            <TextBlock FontSize="27" Text="Ваш логин" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <TextBox x:Name="tbLogin" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" Text="{Binding Issuer.Login}" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+
+            <TextBlock FontSize="27" Text="Ваш пароль" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <TextBox x:Name="pbPassword" Height="40" Background="white" Foreground="#41B3A3" Width="450" Margin="15 5 0 0" Text="{Binding Issuer.Password}" FontSize="25" HorizontalAlignment="Left" ></TextBox>
+
+            <TextBlock FontSize="27" Text="Ваш адрес" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <TextBox x:Name="tbAdress" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" Text="{Binding Issuer.Adress}" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+
+            <TextBlock FontSize="27" Text="Ваш номер телефона" Foreground="white" Margin="15 10 0 0" HorizontalAlignment="Left"></TextBlock>
+            <TextBox x:Name="tbPhone" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" Text="{Binding Issuer.Phone}" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="30" >
+                <Button x:Name="btnEditConf" Click="btnEditConf_Click" Width="200" Content="Изменить"  HorizontalAlignment="Left" Height="50" FontSize="27" Foreground="AliceBlue" Style="{StaticResource MainButtonStyle}" ></Button>
+                <Button x:Name="btnCancel" Click="btnCancel_Click" Content="Отменить"  Width="200" HorizontalAlignment="Left" Height="50" FontSize="27" Foreground="AliceBlue" Style="{StaticResource MainButtonStyle}" ></Button>
+        </StackPanel>
+        <StackPanel.Effect>
+                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3"/>
+            </StackPanel.Effect>
+        </StackPanel>
     </Grid>
 </Page>
