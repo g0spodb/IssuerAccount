@@ -71,6 +71,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageBuySecurity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PageInvestor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -109,6 +113,9 @@
     </Compile>
     <Compile Include="Pages\PageAccountOpening.xaml.cs">
       <DependentUpon>PageAccountOpening.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageBuySecurity.xaml.cs">
+      <DependentUpon>PageBuySecurity.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageInvestor.xaml.cs">
       <DependentUpon>PageInvestor.xaml</DependentUpon>

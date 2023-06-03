@@ -38,9 +38,8 @@
             <TextBlock Text="Основные возможности" FontSize="30" Height="30" Width="330" VerticalAlignment="Top" Foreground="AliceBlue"/>
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center"  Orientation="Vertical" Margin="0 20 0 0" Width="600" Height="400" Background="#B939D3">
                 <Button x:Name="btnSecurities" Click="btnSecurities_Click"  FontSize="30" Height="50" Margin="20 40 20 20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">Ценные бумаги на продаже</Button>
-                <Button x:Name="btnInvestors" Click="btnInvestors_Click"  FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}">Ваши инвесторы</Button>
-                <Button x:Name="btnDeal" Click="btnDeal_Click"  FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}">История покупок ценных бумаг</Button>
-                <StackPanel.Effect>
+                <Button x:Name="btnInvestors" Click="btnInvestors_Click"  FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">Ваши ценные бумаги</Button>
+                <StackPanel.Effect> 
                     <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3"/>
                 </StackPanel.Effect>
             </StackPanel>

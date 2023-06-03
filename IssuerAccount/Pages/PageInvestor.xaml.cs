@@ -33,7 +33,7 @@ namespace IssuerAccount.Pages
 
         private void btnSecurities_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new PageBuySecurity(Investor));
         }
 
         private void btnDeal_Click(object sender, RoutedEventArgs e)
