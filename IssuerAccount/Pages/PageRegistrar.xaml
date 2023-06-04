@@ -6,23 +6,41 @@
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="695" d:DesignWidth="1400"
-      Title="PageRegistrar" Background="#5A016D" FontFamily="Bahnschrift SemiBold">
+      Title="PageRegistrar" FontFamily="Bahnschrift SemiBold">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="100"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10" Width="600" HorizontalAlignment="Left">
-            <TextBlock Text="Функции регистратора" FontSize="30" Height="30" Width="330" VerticalAlignment="Top" Foreground="AliceBlue"/>
-            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center"  Orientation="Vertical" Margin="0 20 0 0" Width="600" Height="400" Background="#B939D3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" Margin="10" Width="600" HorizontalAlignment="Center">
+            <TextBlock Text="Функции регистратора" FontSize="30" Height="50" Width="330" VerticalAlignment="Top" Foreground="AliceBlue"/>
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center"  Orientation="Vertical" Margin="0 20 0 0" Width="600" Height="400" Style="{StaticResource SP}">
                 <Button x:Name="btnAccountOpening" Click="btnAccountOpening_Click"  FontSize="30" Height="50" Margin="20 40 20 20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">Открыть счет эмитента</Button>
-                <Button x:Name="btnSecurities" Click="btnSecurities_Click"  FontSize="30" Height="50" Margin="20 20 20 20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">Ценные бумаги</Button>
-                <Button x:Name="btnIssuers" Click="btnIssuers_Click"  FontSize="30" Height="50" Margin="20 20 20 20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">Список эмитентов</Button>
-                <Button x:Name="btnInvestors" Click="btnInvestors_Click"  FontSize="30" Height="50" Margin="20 20 20 20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">Список инвесторов</Button>
+                <Button x:Name="btnSecurities" Click="btnSecurities_Click"  FontSize="30" Height="50" Margin="20 20 20 20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">Ценные бумаги на подтверждение</Button>
                 <StackPanel.Effect>
-                    <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3"/>
+                    <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="{StaticResource ShadowColor}"/>
                 </StackPanel.Effect>
             </StackPanel>
+        </StackPanel>
+
+
+        <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1" Margin="10" Width="600" HorizontalAlignment="Center">
+
+            <TextBlock Text="Мониторинг" FontSize="30" Height="50" Width="168" VerticalAlignment="Top" Foreground="AliceBlue"/>
+
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center"  Orientation="Vertical" Margin="0 20 0 0" Width="600" Height="400" Style="{StaticResource SP}">
+                <Button x:Name="btnIssuers" Click="btnIssuers_Click"  FontSize="30" Height="50" Margin="20 20 20 20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">Список эмитентов</Button>
+                <Button x:Name="btnInvestors" Click="btnInvestors_Click"  FontSize="30" Height="50" Margin="20 20 20 20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">Список инвесторов</Button>
+                <Button x:Name="btnDeals" Click="btnDeals_Click"  FontSize="30" Height="50" Margin="20 20 20 20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">Список сделок</Button>
+            </StackPanel>
+
+            <StackPanel.Effect>
+                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="{StaticResource ShadowColor}"/>
+            </StackPanel.Effect>
         </StackPanel>
 
     </Grid>

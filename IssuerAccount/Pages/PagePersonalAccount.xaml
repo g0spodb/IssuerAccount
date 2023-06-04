@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1400"
-      Title="PagePersonalAccount" Background="#5A016D" FontFamily="Bahnschrift SemiBold" Foreground="AliceBlue">
+      Title="PagePersonalAccount" FontFamily="Bahnschrift SemiBold" Foreground="AliceBlue">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -49,7 +49,7 @@
         </StackPanel>
 
 
-        <StackPanel x:Name="spedit" Visibility="Hidden" Margin="0 40 0 0" Width="500" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Background="#B939D3" Height="610">
+        <StackPanel x:Name="spedit" Visibility="Hidden" Margin="0 40 0 0" Width="500" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Style="{StaticResource SP}" Height="610">
 
             <TextBlock FontSize="27" Text="Ваше ФИО" Foreground="white" Margin="15 10 0 0"></TextBlock>
             <TextBox x:Name="tbFullName" Height="40" Background="White" Foreground="#41B3A3" Text="{Binding Issuer.FullName}"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
@@ -70,7 +70,7 @@
                 <Button x:Name="btnCancel" Click="btnCancel_Click" Content="Отменить"  Width="200" HorizontalAlignment="Left" Height="50" FontSize="27" Foreground="AliceBlue" Style="{StaticResource MainButtonStyle}" ></Button>
         </StackPanel>
         <StackPanel.Effect>
-                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3"/>
+                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="{StaticResource ShadowColor}"/>
             </StackPanel.Effect>
         </StackPanel>
     </Grid>

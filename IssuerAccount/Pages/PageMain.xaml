@@ -6,13 +6,13 @@
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d"
       d:DesignHeight="700" d:DesignWidth="1400"
-      Title="PageMain" Background="#5A016D" FontFamily="Bahnschrift SemiBold">
+      Title="PageMain" FontFamily="Bahnschrift SemiBold">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="150"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Rectangle RadiusX="50" RadiusY="120" Fill="#B939D3" Width="400" Height="130" VerticalAlignment="Top" Margin="0 20 -100 0" HorizontalAlignment="Right" Grid.Row="0"/>
+        <Rectangle RadiusX="50" RadiusY="120" Style="{StaticResource Rec}" Width="400" Height="130" VerticalAlignment="Top" Margin="0 20 -100 0" HorizontalAlignment="Right" Grid.Row="0"/>
 
         <StackPanel VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 20 0 0" Width="300" Height="130">
 
@@ -30,33 +30,33 @@
             <Hyperlink NavigateUri="PagePersonalAccount.xaml"></Hyperlink></TextBlock>
         </StackPanel>
         <StackPanel VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Right" Margin="130 35 180 0" Width="100" Height="100" >
-            <Image Source="/IssuerAccount;component/Resourses/foncomplete.png" MouseLeftButtonDown="img_prod_MouseLeftButtonDown"  Width="100" Height="100" ></Image>
+            <Image MouseLeftButtonDown="img_prod_MouseLeftButtonDown"  Width="100" Height="100" ></Image>
         </StackPanel>
 
 
         <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10" Width="600" HorizontalAlignment="Left" x:Name="sppos">
             <TextBlock Text="Основные возможности" FontSize="30" Height="30" Width="330" VerticalAlignment="Top" Foreground="AliceBlue"/>
-            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center"  Orientation="Vertical" Margin="0 20 0 0" Width="600" Height="400" Background="#B939D3">
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center"  Orientation="Vertical" Margin="0 20 0 0" Width="600" Height="400" Style="{StaticResource SP}">
                 <Button x:Name="btnAccount" Click="btnAccount_Click"  FontSize="30" Height="50" Margin="20 40 20 20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">Эмиссионный счёт</Button>
-                <Button x:Name="btnInvestors" Click="btnInvestors_Click"  FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}">Ваши инвесторы</Button>
-                <Button x:Name="btnDeal" Click="btnDeal_Click"  FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}">История покупок ваших ценных бумаг</Button>
-                <Button x:Name="btnSecurity" Click="btnSecurity_Click"  FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}">Ваши ценные бумаги</Button>
+                <Button x:Name="btnInvestors" Click="btnInvestors_Click" FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}">Ваши инвесторы</Button>
+                <Button x:Name="btnDeal" Click="btnDeal_Click" FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}">История покупок ваших ценных бумаг</Button>
+                <Button x:Name="btnSecurity" Click="btnSecurity_Click" FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}">Ваши ценные бумаги</Button>
                 <StackPanel.Effect>
-                    <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3"/>
+                    <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="{StaticResource ShadowColor}"/>
                 </StackPanel.Effect>
             </StackPanel>
         </StackPanel>
-        <StackPanel Orientation="Vertical" x:Name="sptu" Grid.Row="1" Margin="180 60 0 0" Background="#B939D3" Visibility="Hidden"  HorizontalAlignment="Center"  VerticalAlignment="Top" Width="300" Height="250">
+        <StackPanel Orientation="Vertical" x:Name="sptu" Grid.Row="1" Margin="180 60 0 0" Style="{StaticResource SP}" Visibility="Hidden"  HorizontalAlignment="Center"  VerticalAlignment="Top" Width="300" Height="250">
             <TextBlock Text="Пополнить на сумму :" FontSize="24" Height="30" Width="237" VerticalAlignment="Top" Margin="20" Foreground="AliceBlue"/>
-            <TextBox x:Name="tbsum" Width="240" Height="50" VerticalAlignment="Top" Margin="10" FontSize="24" Foreground="AliceBlue" Background="#5A016D" BorderBrush="AliceBlue"/>
-            <Button x:Name="btnAccept" Click="btnAccept_Click"  Style="{StaticResource MainButtonStyle}" Margin="10 50 10 10" FontSize="25" Height="40" Width="250">Пополнить</Button>
+            <TextBox x:Name="tbsum" Width="240" Height="50" VerticalAlignment="Top" Margin="10" FontSize="24" Foreground="AliceBlue" Background="#93a7c8" BorderBrush="AliceBlue"/>
+            <Button x:Name="btnAccept" Click="btnAccept_Click"  Style="{StaticResource MainButtonStyle}" Background="#93a7c8" Margin="10 50 10 10" FontSize="25" Height="40" Width="250">Пополнить</Button>
             <StackPanel.Effect>
-                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3"/>
+                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="{StaticResource ShadowColor}"/>
             </StackPanel.Effect>
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10 10 60 10" Width="300" HorizontalAlignment="Right">
             <TextBlock Text="Текущий статус счёта" FontSize="30" Height="30" Foreground="AliceBlue"/>
-            <Border CornerRadius="90" Width="300" Height="400" Background="#B939D3" Margin="0 20 0 0" >
+            <Border CornerRadius="90" Width="300" Height="400" Background="#c893a7" Margin="0 20 0 0" >
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center"  Orientation="Vertical" Width="300" Height="400">
                     <Image x:Name="statusImage" Width="130" Height="130" Margin="20"></Image>
                     <TextBlock x:Name="statusText" FontSize="18" Height="40" HorizontalAlignment="Center"  VerticalAlignment="Top" Foreground="AliceBlue"/>
@@ -65,7 +65,7 @@
                     <Button x:Name="btnOpenAccount" Click="btnOpenAccount_Click" Style="{StaticResource MainButtonStyle}" FontSize="25" Visibility="Hidden" VerticalAlignment ="Bottom" Height="60" Width="250" Cursor="Hand">Открыть счёт</Button>
                 </StackPanel>
                 <Border.Effect>
-                    <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3"/>
+                    <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="{StaticResource ShadowColor}"/>
                 </Border.Effect>
             </Border>
         </StackPanel>

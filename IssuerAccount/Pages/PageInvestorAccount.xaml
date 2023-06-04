@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1400"
-      Title="PageInvestorAccount" Background="#5A016D" FontFamily="Bahnschrift SemiBold">
+      Title="PageInvestorAccount" FontFamily="Bahnschrift SemiBold">
 
     <Grid>
         

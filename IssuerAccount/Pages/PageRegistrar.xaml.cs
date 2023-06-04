@@ -48,5 +48,10 @@ namespace IssuerAccount.Pages
         {
             NavigationService.Navigate(new PagePendingSecurities(Registrar));
         }
+
+        private void btnDeals_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageDeals());
+        }
     }
 }

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="695" d:DesignWidth="1400"
-      Title="PageIssuers" Background="#5A016D" FontFamily="Bahnschrift SemiBold">
+      Title="PageIssuers" FontFamily="Bahnschrift SemiBold">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -18,18 +18,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         
-        <Button x:Name="btnAccDelete" Click="btnAccDelete_Click" FontSize="30" Grid.Column="1" HorizontalAlignment="Left" Height="35" Width="350" Background="#B939D3" Style="{StaticResource MainButtonStyle}">Удалить эмитента</Button>
+        <Button x:Name="btnAccDelete" Click="btnAccDelete_Click" FontSize="30" Grid.Column="1" HorizontalAlignment="Left" Height="35" Width="350" Style="{StaticResource MainButtonStyle}">Удалить эмитента</Button>
 
-        <ListView x:Name="lvIssuers" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding issuers}" Background="DeepPink" Width="900" HorizontalAlignment="Left" BorderBrush="{x:Null}">
-            <ListView.Resources>
-                <Style TargetType="GridViewColumnHeader">
-                    <Setter Property="Background" Value="#B939D3"/>
-                    <Setter Property="Foreground" Value="AliceBlue"/>
-                    <Setter Property="FontSize" Value="16"/>
-                </Style>
-            </ListView.Resources>
+        <ListView x:Name="lvIssuers" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding issuers}" Width="900" HorizontalAlignment="Left" BorderBrush="{x:Null}">
             <ListView.View>
-                <GridView AllowsColumnReorder="true">
+                <GridView AllowsColumnReorder="true" ColumnHeaderContainerStyle="{StaticResource GV}">
                     <GridViewColumn Header="ФИО" Width="300" DisplayMemberBinding="{Binding FullName}"/>
                     <GridViewColumn Header="Адрес" Width="300" DisplayMemberBinding="{Binding Adress}"/>
                     <GridViewColumn Header="Номер телефона" Width="300" DisplayMemberBinding="{Binding Phone}"/>

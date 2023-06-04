@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="695" d:DesignWidth="1400"
-      Title="PageAccountOpening" Background="#5A016D" FontFamily="Bahnschrift SemiBold">
+      Title="PageAccountOpening" FontFamily="Bahnschrift SemiBold">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -23,15 +23,8 @@
             <Button x:Name="btnAccDelete" FontSize="30" Height="35" Width="350" Background="#B939D3" Style="{StaticResource MainButtonStyle}">Отклонить заявку</Button>
         </StackPanel>
         <ListView ItemsSource="{Binding accountOpeningApplications}" x:Name="lv" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Background="{x:Null}" BorderBrush="{x:Null}" >
-            <ListView.Resources>
-                <Style TargetType="GridViewColumnHeader">
-                    <Setter Property="Background" Value="#B939D3"/>
-                    <Setter Property="Foreground" Value="AliceBlue"/>
-                    <Setter Property="FontSize" Value="20"/>
-                </Style>
-            </ListView.Resources>
             <ListView.View>
-                <GridView AllowsColumnReorder="true">
+                <GridView AllowsColumnReorder="true" ColumnHeaderContainerStyle="{StaticResource GV}">
                     <GridViewColumn Header="ФИО" Width="300" DisplayMemberBinding="{Binding Issuer.FullName}"/>
                     <GridViewColumn Header="Адрес" Width="300" DisplayMemberBinding="{Binding Issuer.Adress}"/>
                     <GridViewColumn Header="Номер телефона" Width="300" DisplayMemberBinding="{Binding Issuer.Phone}"/>

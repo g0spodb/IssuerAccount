@@ -28,7 +28,7 @@ namespace IssuerAccount.Pages
         {
             InitializeComponent();
             Investor = investor;
-            securities = new ObservableCollection<Security>(db_connection.connection.Security.Where(c => c.RegistrationStatus == true).ToList());
+            securities = new ObservableCollection<Security>(db_connection.connection.Security.Where(c => c.RegistrationStatus == true && c.SaleStatus == null).ToList());
             this.DataContext = this;
         }
 
@@ -41,6 +41,7 @@ namespace IssuerAccount.Pages
                 var Account = db_connection.connection.Account.FirstOrDefault(q => q.Id == Investor.Id_Account);
                 if (Account.Balance >= selectedItem.Price)
                 {
+                    Account.Balance = Account.Balance - selectedItem.Price;
                     selectedItem.SaleStatus = true;
                     var d = new Deal
                     {
@@ -50,19 +51,24 @@ namespace IssuerAccount.Pages
                         Price = selectedItem.Price,
                         Date = DateTime.Now
                     };
-
+                    db_connection.connection.Deal.Add(d);
+                    db_connection.connection.SaveChanges();
                     MessageBox.Show("Вы успешно приобрели ценную бумагу, она будет отображена в вашем портфеле");
-                    securities = new ObservableCollection<Security>(db_connection.connection.Security.Where(c => c.RegistrationStatus == true && c.SaleStatus == false).ToList());
-                    lv.ItemsSource = securities;
-                    lv.Items.Refresh();
+
+                    NavigationService.Navigate(new PageInvestor(Investor));
+
+                    //securities = new ObservableCollection<Security>(db_connection.connection.Security.Where(c => c.RegistrationStatus == true && c.SaleStatus == null).ToList());
+                    //lv.ItemsSource = securities;
+                    //lv.Items.Refresh();
                 }
                 else
                 {
                     MessageBox.Show("На вашем счету недостаточно средств для покупки");
                 }
             }
-            else 
+            else
             {
+                MessageBox.Show("Выберите ценную бумагу");
             }
         }
     }

@@ -4,16 +4,39 @@
              xmlns:local="clr-namespace:IssuerAccount"
              StartupUri="Windows/MainWindow.xaml">
     <Application.Resources>
-        <Color x:Key="PrimaryColor">#2196F3</Color>
-        <Color x:Key="AccentColor">#FFC107</Color>
-        
-        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Color x:Key="ShadowColor">#c893a7</Color>
+
+            <Style TargetType="Control">
+                <Setter Property="Background" Value="#d56bf2" />
+                <Setter Property="FontFamily" Value="Bahnschrift SemiBold"/>
+            </Style>
+
+            <Style x:Key="SP" TargetType="StackPanel">
+                <Setter Property="Background" Value="#c893a7"/>
+            </Style>
+            <Style x:Key="Rec" TargetType="Rectangle">
+                <Setter Property="Fill" Value="#c893a7"/>
+            </Style>
+            <Style x:Key="GV" TargetType="GridViewColumnHeader">
+                <Setter Property="Background" Value="#c893a7"/>
+                <Setter Property="Foreground" Value="AliceBlue"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
         <Style x:Key="MainButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#6E227E"/>
+                <Setter Property="Background" Value="#93a7c8"/>
             <Setter Property="Foreground" Value="AliceBlue"/>
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Padding" Value="10 5"/>
-            <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="BorderBrush" Value="Azure"/>
+                <Setter Property="BorderThickness" Value="5"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -27,9 +50,9 @@
             </Setter>
             <Style.Triggers>
 
-                <Trigger Property="IsMouseOver" Value="True">
+                <!--<Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#8106A9"/>
-                </Trigger>
+                </Trigger>-->
             </Style.Triggers>
         </Style>
 
@@ -83,13 +106,15 @@
             <Style.Triggers>
                 <EventTrigger RoutedEvent="Button.Click">
                     <BeginStoryboard>
-                        <Storyboard>
-                            <!-- Ваша анимация -->
-                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" AutoReverse="True" RepeatBehavior="3x" />
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" AutoReverse="True" RepeatBehavior="3x" />
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
             </Style.Triggers>
         </Style>
+
+        </ResourceDictionary>
     </Application.Resources>
+    
 </Application>

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="695" d:DesignWidth="1400"
-      Title="PagePendingSecurities" Background="#5A016D" FontFamily="Bahnschrift SemiBold">
+      Title="PagePendingSecurities" FontFamily="Bahnschrift SemiBold">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -22,17 +22,10 @@
         <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left"  Height="80" VerticalAlignment="Center" Orientation="Horizontal">
             <Button x:Name="btnAccept" Click="btnAccept_Click" FontSize="30" Height="35" Width="350" Background="#B939D3" Style="{StaticResource MainButtonStyle}">Подтвердить продажу</Button>
         </StackPanel>
-        
+
         <ListView ItemsSource="{Binding pendingSecurities}" x:Name="lv" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Background="{x:Null}" BorderBrush="{x:Null}">
-            <ListView.Resources>
-                <Style TargetType="GridViewColumnHeader">
-                    <Setter Property="Background" Value="#B939D3"/>
-                    <Setter Property="Foreground" Value="AliceBlue"/>
-                    <Setter Property="FontSize" Value="20"/>
-                </Style>
-            </ListView.Resources>
             <ListView.View>
-                <GridView AllowsColumnReorder="true">
+                <GridView AllowsColumnReorder="true" ColumnHeaderContainerStyle="{StaticResource GV}">
                     <GridViewColumn Header="Название" Width="300" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Количество" Width="120" DisplayMemberBinding="{Binding Quantity}"/>
                     <GridViewColumn Header="Цена" Width="120" DisplayMemberBinding="{Binding Price}"/>

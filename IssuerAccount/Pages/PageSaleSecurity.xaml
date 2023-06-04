@@ -6,10 +6,10 @@
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1400"
-      Title="PageSaleSecurity" Background="#5A016D" FontFamily="Bahnschrift SemiBold">
+      Title="PageSaleSecurity" FontFamily="Bahnschrift SemiBold">
 
     <Grid>
-        <StackPanel Margin="0 40 0 0" Width="500" Background="#B939D3" Height="610">
+        <StackPanel Margin="0 40 0 0" Width="500" Style="{StaticResource SP}" Height="610">
 
             <TextBlock FontSize="27" Text="Название" Foreground="white" Margin="15 10 0 0"></TextBlock>
             <TextBox x:Name="tbName" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
@@ -23,7 +23,7 @@
             <Button x:Name="btnSale" Click="btnSale_Click" Style="{StaticResource MainButtonStyle}" Content="Выставить на продажу" Margin="15 50 0 0" Width="450" HorizontalAlignment="Left" Height="50" FontSize="27"></Button>
 
             <StackPanel.Effect>
-                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3"/>
+                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="{StaticResource ShadowColor}"/>
             </StackPanel.Effect>
         </StackPanel>
     </Grid>

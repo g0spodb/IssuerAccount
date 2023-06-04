@@ -57,14 +57,14 @@ namespace IssuerAccount.Pages
             sptu.Visibility = Visibility.Visible;
         }
 
-        private void btnInvestors_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void img_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             NavigationService.Navigate(new PageInvestorAccount(Investor));
+        }
+
+        private void btnYourDeal_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageYourDeal(Investor));
         }
     }
 }

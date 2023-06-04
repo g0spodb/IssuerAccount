@@ -6,22 +6,22 @@
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1400"
-      Title="PageLogin" Background="#5A016D" FontFamily="Bahnschrift SemiBold">
+      Title="PageLogin" FontFamily="Bahnschrift SemiBold">
 
     <Grid>
         <TextBlock  HorizontalAlignment="Center" Margin="0 40 0 0" FontSize="35" Foreground="white" FontFamily="Bahnschrift SemiBold" > Вход в аккаунт</TextBlock>
-        <StackPanel Margin="0 80 0 0" Width="500" Height="500" Background="#B939D3">
-            <TextBlock FontSize="27" Text="Ваше имя пользователя" Foreground="white" Margin="15 50 0 0"></TextBlock>
-            <TextBox x:Name="tbLogin" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+        <StackPanel Margin="0 80 0 0" Width="500" Height="500" Style="{StaticResource SP}">
+            <TextBlock FontSize="27" Text="Ваше имя пользователя" Foreground="White" Margin="15 50 0 0"></TextBlock>
+            <TextBox x:Name="tbLogin" Height="40" Background="{x:Null}" Foreground="White"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
 
-            <TextBlock FontSize="27" Text="Ваш пароль" Foreground="white" Margin="15 30 0 0"></TextBlock>
-            <PasswordBox x:Name="pbPassword" Height="40" Background="white" Foreground="#41B3A3" Width="450" Margin="15 5 0 0" FontSize="25" HorizontalAlignment="Left" ></PasswordBox>
+            <TextBlock FontSize="27" Text="Ваш пароль" Foreground="White" Margin="15 30 0 0"></TextBlock>
+            <PasswordBox x:Name="pbPassword" Height="40" Background="{x:Null}" Foreground="White" Width="450" Margin="15 5 0 0" FontSize="25" HorizontalAlignment="Left" ></PasswordBox>
 
-            <Button x:Name="btnlogin" Click="btnlogin_Click" Content="Войти" Margin="15 50 0 0" Width="450" HorizontalAlignment="Left" Height="50" FontSize="27" Style="{StaticResource MainButtonStyle}"></Button>
-            <Button x:Name="btnReg" Click="btnReg_Click" Content="Создать новый аккаунт" Margin="15 50 0 0" Width="450" HorizontalAlignment="Left" Height="50" FontSize="27" Style="{StaticResource MainButtonStyle}"></Button>
+            <Button x:Name="btnlogin" Click="btnlogin_Click" Content="Войти" Margin="15 50 0 0" Width="450" HorizontalAlignment="Left" Height="50" FontSize="27" Background="#93a7c8" Style="{StaticResource MainButtonStyle}"></Button>
+            <Button x:Name="btnReg" Click="btnReg_Click" Content="Создать новый аккаунт" Margin="15 50 0 0" Width="450" HorizontalAlignment="Left" Height="50" Background="#93a7c8" FontSize="27" Style="{StaticResource MainButtonStyle}"></Button>
 
             <StackPanel.Effect>
-                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="#41B3A3"/>
+                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="{StaticResource ShadowColor}"/>
             </StackPanel.Effect>
         </StackPanel>
     </Grid>
