@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="1400"
+      d:DesignHeight="800" d:DesignWidth="1400"
       Title="PageBuySecurity" FontFamily="Bahnschrift SemiBold">
 
     <Grid>
@@ -16,13 +16,23 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button x:Name="btnBuySecurity" Click="btnBuySecurity_Click" Grid.Column="1" Grid.Row="0" Height="40" Width="200" Background="#B939D3" Style="{StaticResource MainButtonStyle}">Купить ценную бумагу</Button>
 
-
-        <ListView x:Name="lv" ItemsSource="{Binding securities}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Background="{x:Null}" BorderBrush="{x:Null}" >
+        <Border Background="#c893a7" Grid.Row="0" Grid.ColumnSpan="3" CornerRadius="50" Width="1425" Margin="-25 0 -25 0">
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Width="1350" >
+                <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
+                <Button x:Name="btnFaq" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1030 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
+            </StackPanel>
+        </Border>
+        <Button x:Name="btnBuySecurity" Click="btnBuySecurity_Click" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Height="40" Width="200" Style="{StaticResource SecondButtonStyle}" Cursor="Hand">Купить ценную бумагу</Button>
+        <StackPanel x:Name="spQ" Visibility="Hidden" Grid.Row="1" Grid.Column="1" Orientation="Vertical" Width="200">
+            <TextBlock Text="Введите количество" Height="40" Width="200" FontSize="20" Foreground="AliceBlue" VerticalAlignment="Center"/>
+            <TextBox x:Name="tbQuantity" Height="40" Width="200" Foreground="AliceBlue"></TextBox>
+        </StackPanel>
+        <Button x:Name="btnAccept" Click="btnAccept_Click" Visibility="Hidden" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Height="40" Width="200" Style="{StaticResource SecondButtonStyle}">Подтвердить</Button>
+        <ListView x:Name="lv" ItemsSource="{Binding securities}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Background="{x:Null}" BorderBrush="{x:Null}" >
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource GV}">
                     <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}" Width="150"/>

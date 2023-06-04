@@ -5,11 +5,23 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="1400"
+      d:DesignHeight="800" d:DesignWidth="1400"
       Title="PageSaleSecurity" FontFamily="Bahnschrift SemiBold">
 
     <Grid>
-        <StackPanel Margin="0 40 0 0" Width="500" Style="{StaticResource SP}" Height="610">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#c893a7" Grid.Row="0" CornerRadius="50" Width="1425" Margin="-25 -9 -25 0">
+            <StackPanel Grid.Row="0"  Orientation="Horizontal" Width="1350" >
+                <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
+                <Button x:Name="btnFaq" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1030 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
+            </StackPanel>
+        </Border>
+        
+        <StackPanel Margin="0 40 0 0" Grid.Row="1" Width="500" Style="{StaticResource SP}" Height="610">
 
             <TextBlock FontSize="27" Text="Название" Foreground="white" Margin="15 10 0 0"></TextBlock>
             <TextBox x:Name="tbName" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>

@@ -15,15 +15,8 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="700"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border Background="#c893a7" Grid.Row="0" CornerRadius="50" Width="1425" Margin="-25 -9 -25 0">
-            <StackPanel Grid.Row="0" Background="#c893a7" Orientation="Horizontal" Width="1350" >
-                <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
-                <Button x:Name="btnFaq" Click="btnFaq_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1030 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
-            </StackPanel>
-        </Border>
-        <Frame x:Name="frmMain" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="frmMain" Grid.Row="0" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

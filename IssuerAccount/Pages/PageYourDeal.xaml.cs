@@ -31,5 +31,10 @@ namespace IssuerAccount.Pages
             deals = new ObservableCollection<Deal>(db_connection.connection.Deal.Where(c => c.Id_Investor == Investor.Id).ToList());
             this.DataContext = this;
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageInvestor(Investor));
+        }
     }
 }

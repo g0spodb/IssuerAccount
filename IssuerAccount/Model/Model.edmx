@@ -46,6 +46,7 @@
           <Property Name="Id_Account" Type="int" />
           <Property Name="Login" Type="varchar" MaxLength="500" />
           <Property Name="Password" Type="varchar" MaxLength="500" />
+          <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Issuer">
           <Key>
@@ -313,6 +314,7 @@
           <NavigationProperty Name="Deal" Relationship="Self.FK_Deal_Investor" FromRole="Investor" ToRole="Deal" />
           <Property Name="Login" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Issuer">
           <Key>
@@ -579,6 +581,7 @@
           <EntitySetMapping Name="Investor">
             <EntityTypeMapping TypeName="IssuerAccountModel.Investor">
               <MappingFragment StoreEntitySet="Investor">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

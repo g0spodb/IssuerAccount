@@ -22,10 +22,12 @@ namespace IssuerAccount.Pages
     /// </summary>
     public partial class PageInvestors : Page
     {
+        public Registrar Registrar { get; set; }
         public static ObservableCollection<Investor> investors { get; set; }
-        public PageInvestors()
+        public PageInvestors(Registrar registrar)
         {
             InitializeComponent();
+            Registrar = registrar;
             investors = new ObservableCollection<Investor>(db_connection.connection.Investor.ToList());
             this.DataContext = this;
         }
@@ -46,6 +48,11 @@ namespace IssuerAccount.Pages
             {
                 MessageBox.Show("Выберите инвестора");
             }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageRegistrar(Registrar));
         }
     }
 }

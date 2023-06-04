@@ -22,12 +22,14 @@ namespace IssuerAccount.Pages
     /// </summary>
     public partial class PageIssuers : Page
     {
+        public Registrar Registrar { get; set; }
         public static ObservableCollection<Issuer> issuers { get; set; }
         public static ObservableCollection<AccountOpeningApplication> accountOpeningApplications { get; set; }
-        public PageIssuers()
+        public PageIssuers(Registrar registrar)
         {
             InitializeComponent();
             issuers = new ObservableCollection<Issuer>(db_connection.connection.Issuer.ToList());
+            Registrar = registrar;
             this.DataContext = this;
         }
 
@@ -53,6 +55,11 @@ namespace IssuerAccount.Pages
             {
                 MessageBox.Show("Выберите эмитента");
             }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageRegistrar(Registrar));
         }
     }
 }

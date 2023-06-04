@@ -111,5 +111,10 @@ namespace IssuerAccount.Pages
             sptu.Visibility = Visibility.Hidden;
             NavigationService.Navigate(new PageMain(Issuer));
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageLogin());
+        }
     }
 }

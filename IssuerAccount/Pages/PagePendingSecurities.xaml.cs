@@ -47,5 +47,10 @@ namespace IssuerAccount.Pages
                 MessageBox.Show("Выберите ценную бумагу");
             }
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageRegistrar(Registrar));
+        }
     }
 }

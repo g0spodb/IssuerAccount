@@ -67,5 +67,10 @@ namespace IssuerAccount.Pages
         {
             spedit.Visibility = Visibility.Hidden;
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageMain(Issuer));
+        }
     }
 }

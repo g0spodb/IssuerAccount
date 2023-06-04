@@ -54,5 +54,10 @@ namespace IssuerAccount.Pages
                 MessageBox.Show("У вас недостаточно средств");
             }
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageSecurityList(Issuer));
+        }
     }
 }

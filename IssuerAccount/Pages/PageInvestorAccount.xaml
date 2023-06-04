@@ -5,10 +5,79 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="1400"
+      d:DesignHeight="800" d:DesignWidth="1400"
       Title="PageInvestorAccount" FontFamily="Bahnschrift SemiBold">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="#c893a7" Grid.Row="0" Grid.ColumnSpan="3" CornerRadius="50" Width="1425" Margin="-25 -9 -25 0">
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Width="1350" >
+                <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
+                <Button x:Name="btnFaq" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1030 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
+            </StackPanel>
+        </Border>
+
+        <Button x:Name="btnEdit" Click="btnEdit_Click" Grid.Row="1" Width="250" FontSize="18" Height="45" Style="{StaticResource SecondButtonStyle}" Cursor="Hand">Редактировать информацию</Button>
+
+        <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Vertical" Width="650" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="10">
+            <StackPanel Orientation="Horizontal" Grid.Row="2">
+                <StackPanel Orientation="Vertical" Grid.Row="2" HorizontalAlignment="Left">
+                    <TextBlock FontSize="30" Height="60" Width="450">Ваше ФИО</TextBlock>
+                    <TextBlock Text="{Binding Investor.FullName}" Width="450" x:Name="FullName" TextWrapping="Wrap" FontSize="30" Height="72"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Grid.Row="2" HorizontalAlignment="Right">
+                    <Image x:Name="InvestorPhoto" Margin="10" Grid.Row="1" Width="150" Height="150" Source="{Binding Investor.Photo}" Stretch="UniformToFill"></Image>
+                    <Button x:Name="AddPhoto" Margin="10" Click="AddPhoto_Click" Width="150" FontSize="18" Height="40" HorizontalAlignment="Center" Style="{StaticResource SecondaryButtonStyle}">Добавить фото</Button>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock FontSize="30" Height="30">Адрес</TextBlock>
+            <TextBlock Text="{Binding Investor.Adress}"  Width="300" x:Name="Adress" HorizontalAlignment="Left" FontSize="30" Height="60" />
+            <TextBlock FontSize="30" Height="30">Телефон</TextBlock>
+            <TextBlock Text="{Binding Investor.Phone}"  Width="300" x:Name="Phone" HorizontalAlignment="Left" FontSize="30" Height="60" />
+            <StackPanel Orientation="Horizontal" Grid.Row="2">
+                <StackPanel Orientation="Vertical" Width="300" Grid.Row="2" HorizontalAlignment="Right">
+                    <TextBlock FontSize="30" Height="30">Логин</TextBlock>
+                    <TextBlock Text="{Binding Investor.Login}" x:Name="Login" FontSize="30" Height="60" />
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="300" Grid.Row="2" HorizontalAlignment="Right">
+                    <TextBlock FontSize="30" Height="30">Пароль</TextBlock>
+                    <TextBlock Text="{Binding Investor.Password}" x:Name="Password" FontSize="30" Height="60"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel x:Name="spedit" Visibility="Hidden" Margin="0 40 0 0" Width="500" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Style="{StaticResource SP}" Height="610">
+
+            <TextBlock FontSize="27" Text="Ваше ФИО" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <TextBox x:Name="tbFullName" Height="40" Background="White" Foreground="#41B3A3" Text="{Binding Investor.FullName}"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+
+            <TextBlock FontSize="27" Text="Ваш логин" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <TextBox x:Name="tbLogin" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" Text="{Binding Investor.Login}" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+
+            <TextBlock FontSize="27" Text="Ваш пароль" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <TextBox x:Name="pbPassword" Height="40" Background="white" Foreground="#41B3A3" Width="450" Margin="15 5 0 0" Text="{Binding Investor.Password}" FontSize="25" HorizontalAlignment="Left" ></TextBox>
+
+            <TextBlock FontSize="27" Text="Ваш адрес" Foreground="white" Margin="15 10 0 0"></TextBlock>
+            <TextBox x:Name="tbAdress" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" Text="{Binding Investor.Adress}" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+
+            <TextBlock FontSize="27" Text="Ваш номер телефона" Foreground="white" Margin="15 10 0 0" HorizontalAlignment="Left"></TextBlock>
+            <TextBox x:Name="tbPhone" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" Text="{Binding Investor.Phone}" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="30" >
+                <Button x:Name="btnEditConf" Click="btnEditConf_Click" Width="200" Content="Изменить"  HorizontalAlignment="Left" Height="50" FontSize="27" Foreground="AliceBlue" Style="{StaticResource MainButtonStyle}" ></Button>
+                <Button x:Name="btnCancel" Click="btnCancel_Click" Content="Отменить"  Width="200" HorizontalAlignment="Left" Height="50" FontSize="27" Foreground="AliceBlue" Style="{StaticResource MainButtonStyle}" ></Button>
+            </StackPanel>
+            <StackPanel.Effect>
+                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="{StaticResource ShadowColor}"/>
+            </StackPanel.Effect>
+        </StackPanel>
     </Grid>
 </Page>

@@ -74,5 +74,23 @@ namespace IssuerAccount.Pages
         {
 
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageLogin());
+        }
+
+        private void tbPhone_KeyDown(object sender, KeyEventArgs e)
+        {
+                switch (e.Key)
+                {
+                    case Key.D0:
+                        e.Handled = false;
+                        break;
+                    default:
+                        e.Handled = true;
+                        break;
+            }
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace IssuerAccount.Pages
         {
             InitializeComponent();
             Issuer = issuer;
-            securities = new ObservableCollection<Security>(db_connection.connection.Security.Where(c => c.RegistrationStatus == true && c.Id_Issuer == Issuer.Id).ToList());
+            securities = new ObservableCollection<Security>(db_connection.connection.Security.Where(c => c.RegistrationStatus == true && c.Id_Issuer == Issuer.Id && c.SaleStatus == null).ToList());
             this.DataContext = this;
         }
 
@@ -40,6 +40,33 @@ namespace IssuerAccount.Pages
         private void btnSaleSecurity_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PageSaleSecurity(Issuer));
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageMain(Issuer));
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void btnSold_Click(object sender, RoutedEventArgs e)
+        {
+            btnSale.Visibility = Visibility.Visible;
+            btnSold.Visibility = Visibility.Hidden;
+            securities = new ObservableCollection<Security>(db_connection.connection.Security.Where(c => c.RegistrationStatus == true && c.Id_Issuer == Issuer.Id).ToList());
+            lv.ItemsSource = securities;
+            lv.Items.Refresh();
+        }
+
+        private void btnSale_Click(object sender, RoutedEventArgs e)
+        {
+            btnSale.Visibility = Visibility.Hidden;
+            btnSold.Visibility = Visibility.Visible;
+            securities = new ObservableCollection<Security>(db_connection.connection.Security.Where(c => c.RegistrationStatus == true && c.Id_Issuer == Issuer.Id && c.SaleStatus == null).ToList());
+            lv.ItemsSource = securities;
+            lv.Items.Refresh();
         }
     }
 }

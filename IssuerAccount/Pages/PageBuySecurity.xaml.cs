@@ -34,32 +34,69 @@ namespace IssuerAccount.Pages
 
         private void btnBuySecurity_Click(object sender, RoutedEventArgs e)
         {
+            btnAccept.Visibility = Visibility.Visible;
+            spQ.Visibility = Visibility.Visible;
+            btnBuySecurity.Visibility = Visibility.Hidden;
+        }
 
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageInvestor(Investor));
+        }
+
+        private void btnAccept_Click(object sender, RoutedEventArgs e)
+        {
             var selectedItem = (Security)lv.SelectedItem;
-            if (selectedItem != null)
+            string textBoxText = tbQuantity.Text;
+            try { 
+            int textBoxValue = int.Parse(textBoxText);
+            if (textBoxValue < selectedItem.Quantity)
             {
                 var Account = db_connection.connection.Account.FirstOrDefault(q => q.Id == Investor.Id_Account);
-                if (Account.Balance >= selectedItem.Price)
+                if (Account.Balance >= selectedItem.Price * textBoxValue)
                 {
-                    Account.Balance = Account.Balance - selectedItem.Price;
+                    Account.Balance = Account.Balance - (selectedItem.Price * textBoxValue);
+                    selectedItem.Quantity = selectedItem.Quantity - textBoxValue;
+                    var d = new Deal
+                    {
+                        Id_Security = selectedItem.Id,
+                        Id_Investor = Investor.Id,
+                        Quantity = textBoxValue,
+                        Price = selectedItem.Price * textBoxValue,
+                        Date = DateTime.Now
+                    };
+                    db_connection.connection.Deal.Add(d);
+                    db_connection.connection.SaveChanges();
+                    var Acc = db_connection.connection.Account.FirstOrDefault(q => q.Id == selectedItem.Id_Issuer);
+                    Acc.Balance = Acc.Balance + (selectedItem.Price * textBoxValue);
+                    MessageBox.Show("Вы успешно приобрели ценную бумагу, она будет отображена в вашем портфеле");
+                    NavigationService.Navigate(new PageInvestor(Investor));
+                }
+                else
+                {
+                    MessageBox.Show("На вашем счету недостаточно средств для покупки");
+                }
+            }
+            else if (textBoxValue == selectedItem.Quantity)
+            {
+                var Account = db_connection.connection.Account.FirstOrDefault(q => q.Id == Investor.Id_Account);
+                if (Account.Balance >= selectedItem.Price * textBoxValue)
+                {
+                    Account.Balance = Account.Balance - (selectedItem.Price * textBoxValue);
+                    selectedItem.Quantity = selectedItem.Quantity - textBoxValue;
                     selectedItem.SaleStatus = true;
                     var d = new Deal
                     {
                         Id_Security = selectedItem.Id,
                         Id_Investor = Investor.Id,
-                        Quantity = selectedItem.Quantity,
-                        Price = selectedItem.Price,
+                        Quantity = textBoxValue,
+                        Price = selectedItem.Price * textBoxValue,
                         Date = DateTime.Now
                     };
                     db_connection.connection.Deal.Add(d);
                     db_connection.connection.SaveChanges();
                     MessageBox.Show("Вы успешно приобрели ценную бумагу, она будет отображена в вашем портфеле");
-
                     NavigationService.Navigate(new PageInvestor(Investor));
-
-                    //securities = new ObservableCollection<Security>(db_connection.connection.Security.Where(c => c.RegistrationStatus == true && c.SaleStatus == null).ToList());
-                    //lv.ItemsSource = securities;
-                    //lv.Items.Refresh();
                 }
                 else
                 {
@@ -68,7 +105,12 @@ namespace IssuerAccount.Pages
             }
             else
             {
-                MessageBox.Show("Выберите ценную бумагу");
+                MessageBox.Show("Введенное данное больше количества ценной бумаги на продаже");
+            }
+            }
+            catch
+            {
+                MessageBox.Show("Неверный формат ввода");
             }
         }
     }

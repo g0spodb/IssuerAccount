@@ -43,12 +43,18 @@ namespace IssuerAccount.Pages
 
         private void btnAccept_Click(object sender, RoutedEventArgs e)
         {
+            try {
             var Account = db_connection.connection.Account.FirstOrDefault(q => q.Id == Investor.Id_Account);
             Account.Balance = Account.Balance + Convert.ToInt32(tbsum.Text);
             db_connection.connection.SaveChanges();
             sppos.Visibility = Visibility.Visible;
             sptu.Visibility = Visibility.Hidden;
             NavigationService.Navigate(new PageInvestor(Investor));
+            }
+            catch
+            {
+                MessageBox.Show("Введите корректную сумму");
+            }
         }
 
         private void btnTopUpBalance_Click(object sender, RoutedEventArgs e)
@@ -65,6 +71,11 @@ namespace IssuerAccount.Pages
         private void btnYourDeal_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PageYourDeal(Investor));
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageLogin());
         }
     }
 }

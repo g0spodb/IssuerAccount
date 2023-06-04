@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="695" d:DesignWidth="1400"
+      d:DesignHeight="800" d:DesignWidth="1400"
       Title="PagePendingSecurities" FontFamily="Bahnschrift SemiBold">
 
     <Grid>
@@ -16,14 +16,22 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left"  Height="80" VerticalAlignment="Center" Orientation="Horizontal">
-            <Button x:Name="btnAccept" Click="btnAccept_Click" FontSize="30" Height="35" Width="350" Background="#B939D3" Style="{StaticResource MainButtonStyle}">Подтвердить продажу</Button>
+        <Border Background="#c893a7" Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="50" Width="1425" Margin="-25 -9 -25 0">
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Width="1350" >
+                <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
+                <Button x:Name="btnFaq" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1030 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
+            </StackPanel>
+        </Border>
+        
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left"  Height="80" VerticalAlignment="Center" Orientation="Horizontal">
+            <Button x:Name="btnAccept" Click="btnAccept_Click" FontSize="30" Height="35" Width="350" Style="{StaticResource SecondButtonStyle}" Cursor="Hand">Подтвердить продажу</Button>
         </StackPanel>
 
-        <ListView ItemsSource="{Binding pendingSecurities}" x:Name="lv" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Background="{x:Null}" BorderBrush="{x:Null}">
+        <ListView ItemsSource="{Binding pendingSecurities}" x:Name="lv" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Background="{x:Null}" BorderBrush="{x:Null}">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderContainerStyle="{StaticResource GV}">
                     <GridViewColumn Header="Название" Width="300" DisplayMemberBinding="{Binding Name}"/>

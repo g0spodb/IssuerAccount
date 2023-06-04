@@ -36,12 +36,12 @@ namespace IssuerAccount.Pages
 
         private void btnIssuers_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new PageIssuers());
+            NavigationService.Navigate(new PageIssuers(Registrar));
         }
 
         private void btnInvestors_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new PageInvestors());
+            NavigationService.Navigate(new PageInvestors(Registrar));
         }
 
         private void btnSecurities_Click(object sender, RoutedEventArgs e)
@@ -51,7 +51,12 @@ namespace IssuerAccount.Pages
 
         private void btnDeals_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new PageDeals());
+            NavigationService.Navigate(new PageDeals(Registrar));
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageLogin());
         }
     }
 }

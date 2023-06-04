@@ -22,12 +22,19 @@ namespace IssuerAccount.Pages
     /// </summary>
     public partial class PageDeals : Page
     {
+        public Registrar Registrar { get; set; }
         public static ObservableCollection<Deal> deals { get; set; }
-        public PageDeals()
+        public PageDeals(Registrar registrar)
         {
             InitializeComponent();
+            Registrar = registrar;
             deals = new ObservableCollection<Deal>(db_connection.connection.Deal.ToList());
             this.DataContext = this;
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageRegistrar(Registrar));
         }
     }
 }

@@ -5,30 +5,44 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:IssuerAccount.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="1400"
+      d:DesignHeight="800" d:DesignWidth="1400"
       Title="PageSecurityList" FontFamily="Bahnschrift SemiBold">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button x:Name="btnSaleSecurity" Click="btnSaleSecurity_Click" Grid.Column="1" Grid.Row="0" Height="40" Width="200" Background="#B939D3" Style="{StaticResource MainButtonStyle}">Продать ценную бумагу</Button>
 
-
-        <ListView ItemsSource="{Binding securities}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Background="{x:Null}" BorderBrush="{x:Null}" >
+        <Border Background="#c893a7" Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="50" Width="1425" Margin="-25 -9 -25 0">
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Width="1350" >
+                <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
+                <Button x:Name="btnFaq" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1030 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
+            </StackPanel>
+        </Border>
+        
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Список ценных бумаг на продаже" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="AntiqueWhite" FontSize="25"/>
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="3" VerticalAlignment="Top">
+            <Button x:Name="btnSaleSecurity" Click="btnSaleSecurity_Click" Height="40" Width="180" VerticalAlignment="Top" Style="{StaticResource SecondButtonStyle}">Продать ценную бумагу</Button>
+            <Button x:Name="btnDelete" Click="btnDelete_Click" Height="40" Margin="0 20 0 0" Width="180" VerticalAlignment="Top" Style="{StaticResource SecondButtonStyle}" Cursor="Hand">Снять с продажи</Button>
+        </StackPanel>
+        <Button x:Name="btnSold" Click="btnSold_Click" Height="60" Width="300" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="30 0 0 0" Style="{StaticResource SecondButtonStyle}">Отобразить все ценные бумаги</Button>
+        <Button x:Name="btnSale" Click="btnSale_Click" Height="60" Width="300" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Visibility="Hidden" Margin="30 0 0 0" Style="{StaticResource SecondButtonStyle}">Отобразить ценные бумаги на продаже</Button>
+        
+        <ListView x:Name="lv" ItemsSource="{Binding securities}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="20 0 0 0" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="25" Foreground="AntiqueWhite" >
             <ListView.View>
-                <GridView ColumnHeaderContainerStyle="{StaticResource GV}">
-                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}" Width="150"/>
-                    <GridViewColumn Header="Количество" DisplayMemberBinding="{Binding Quantity}" Width="100"/>
-                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date}" Width="120"/>
-                    <GridViewColumn Header="Продавец" DisplayMemberBinding="{Binding Id_Issuer.FullName}" Width="100"/>
+                <GridView ColumnHeaderContainerStyle="{StaticResource GV}" >
+                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}"  Width="200"/>
+                    <GridViewColumn Header="Кол-во" DisplayMemberBinding="{Binding Quantity}" Width="80"/>
+                    <GridViewColumn Header="Цена за шт" DisplayMemberBinding="{Binding Price}" Width="100"/>
+                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date, StringFormat='{}{0:MM/dd/yyyy}'}" Width="200"/>
                 </GridView>
             </ListView.View>
         </ListView>
