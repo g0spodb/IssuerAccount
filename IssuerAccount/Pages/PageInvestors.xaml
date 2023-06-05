@@ -26,7 +26,7 @@
             </StackPanel>
         </Border>
 
-        <Button x:Name="btnAccDelete" Click="btnAccDelete_Click" Grid.Row="1" FontSize="30" Grid.Column="1" HorizontalAlignment="Left" Height="35" Width="350" Style="{StaticResource SecondButtonStyle}" Cursor="Hand">Удалить инвестора</Button>
+        <Button x:Name="btnAccDelete" Visibility="Hidden" Click="btnAccDelete_Click" Grid.Row="1" FontSize="30" Grid.Column="1" HorizontalAlignment="Left" Height="35" Width="350" Style="{StaticResource SecondButtonStyle}" Cursor="Hand">Удалить инвестора</Button>
 
         <ListView x:Name="lvInvestors" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding investors}"  Width="900" HorizontalAlignment="Left" BorderBrush="{x:Null}">
             <ListView.View>
