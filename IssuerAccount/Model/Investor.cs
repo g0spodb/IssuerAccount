@@ -18,6 +18,7 @@ namespace IssuerAccount.Model
         public Investor()
         {
             this.Deal = new HashSet<Deal>();
+            this.Notification = new HashSet<Notification>();
         }
     
         public int Id { get; set; }
@@ -32,5 +33,7 @@ namespace IssuerAccount.Model
         public virtual Account Account { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Deal> Deal { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Notification> Notification { get; set; }
     }
 }

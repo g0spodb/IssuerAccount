@@ -37,26 +37,17 @@ namespace IssuerAccount.Pages
                 statusText.Text = "Ваш счет открыт, баланс:";
                 tbbal.Visibility = Visibility.Visible;
                 btnTopUpBalance.Visibility = Visibility.Visible;
-            
+                sppos.Visibility = Visibility.Visible;
+
             }
             else
             {
                 statusImage.Source = new BitmapImage(new Uri("/IssuerAccount;component/Resourses/crest.png", UriKind.Relative));
                 statusText.Text = "У вас нет открытого счёта";
                 btnOpenAccount.Visibility = Visibility.Visible;
+                sppos.Visibility = Visibility.Hidden;
             }
         }
-        
-        private void btnAccount_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnInvestors_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btnDeal_Click(object sender, RoutedEventArgs e)
         {
 
@@ -115,6 +106,11 @@ namespace IssuerAccount.Pages
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PageLogin());
+        }
+
+        private void btnYourInvestors_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageYourInvestor(Issuer));
         }
     }
 }

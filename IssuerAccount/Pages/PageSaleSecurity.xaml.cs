@@ -34,8 +34,8 @@ namespace IssuerAccount.Pages
         {
             var Account = db_connection.connection.Account.FirstOrDefault(q => q.Id == Issuer.Id_Account);
             int i = (int)Account.Balance;
-            if (i > Convert.ToInt32(tbPrice.Text))
-            {
+            //if (i > Convert.ToInt32(tbPrice.Text))
+            //{
                 var a = new Security
                 {
                     Name = tbName.Text,
@@ -48,11 +48,11 @@ namespace IssuerAccount.Pages
                 db_connection.connection.Security.Add(a);
                 db_connection.connection.SaveChanges();
                 MessageBox.Show("Ценная бумага успешно выставлена на продажу, ожидайте проверки");
-            }
-            else
-            {
-                MessageBox.Show("У вас недостаточно средств");
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("У вас недостаточно средств");
+            //}
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

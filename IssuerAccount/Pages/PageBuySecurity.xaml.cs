@@ -24,6 +24,7 @@ namespace IssuerAccount.Pages
     {
         public Investor Investor { get; set; }
         public static ObservableCollection<Security> securities { get; set; }
+        public static ObservableCollection<Account> accs { get; set; }
         public PageBuySecurity(Investor investor)
         {
             InitializeComponent();
@@ -66,9 +67,10 @@ namespace IssuerAccount.Pages
                         Date = DateTime.Now
                     };
                     db_connection.connection.Deal.Add(d);
-                    db_connection.connection.SaveChanges();
-                    var Acc = db_connection.connection.Account.FirstOrDefault(q => q.Id == selectedItem.Id_Issuer);
+                    var iss = db_connection.connection.Issuer.FirstOrDefault(z => z.Id == selectedItem.Id_Issuer);
+                    var Acc = db_connection.connection.Account.FirstOrDefault(z => z.Id == iss.Id_Account);
                     Acc.Balance = Acc.Balance + (selectedItem.Price * textBoxValue);
+                    db_connection.connection.SaveChanges();
                     MessageBox.Show("Вы успешно приобрели ценную бумагу, она будет отображена в вашем портфеле");
                     NavigationService.Navigate(new PageInvestor(Investor));
                 }

@@ -69,6 +69,10 @@ namespace IssuerAccount.Pages
                     NavigationService.GoBack();
                 }
             }
+            else
+            {
+                MessageBox.Show("Ввведите все данные");
+            }
         }
         private void cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

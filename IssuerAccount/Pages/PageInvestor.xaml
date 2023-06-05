@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:IssuerAccount.Pages"
+      xmlns:local="clr-namespace:IssuerAccount.Pages" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1400"
       Title="PageInvestor" FontFamily="Bahnschrift SemiBold">
@@ -37,7 +37,7 @@
                     <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50" />
                 </Image.Clip>
             </Image>
-            <TextBlock Text="{Binding Issuer.FullName}" Height="40" Width="170" x:Name="FullName" TextWrapping="Wrap" FontSize="30">
+            <TextBlock Text="{Binding Investor.FullName}" Height="80" Width="170" x:Name="FullName" Foreground="White" TextWrapping="Wrap" FontSize="30">
             <Hyperlink NavigateUri="PagePersonalAccount.xaml"></Hyperlink></TextBlock>
         </StackPanel>
         <StackPanel VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Right" Margin="130 35 180 0" Width="100" Height="100" >
@@ -50,6 +50,10 @@
             <StackPanel Style="{StaticResource SP}" VerticalAlignment="Top" HorizontalAlignment="Center"  Orientation="Vertical" Margin="0 40 0 0" Width="600" Height="400" >
                 <Button x:Name="btnSecurities" Click="btnSecurities_Click"  FontSize="30" Height="50" Margin="20 40 20 20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">Ценные бумаги на продаже</Button>
                 <Button x:Name="btnYourDeal" Click="btnYourDeal_Click"  FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">Ваши ценные бумаги</Button>
+
+                <materialDesign:Badged HorizontalAlignment="Center" Margin="15" Badge="{Binding countt}" FontSize="50"  >
+                    <Button Height="50" x:Name="btnNotif" Click="btnNotif_Click" Width="560" FontSize="30" HorizontalAlignment="Center" Style="{StaticResource MainButtonStyle}">Уведомления</Button>
+                </materialDesign:Badged>
                 <StackPanel.Effect>
                     <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="{StaticResource ShadowColor}"/>
                 </StackPanel.Effect>

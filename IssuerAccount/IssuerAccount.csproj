@@ -106,6 +106,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageNotifInvestor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PagePendingSecurities.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PageYourDeal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageYourInvestor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,6 +137,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\Notification.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageAccountOpening.xaml.cs">
       <DependentUpon>PageAccountOpening.xaml</DependentUpon>
@@ -151,6 +162,9 @@
     <Compile Include="Pages\PageIssuers.xaml.cs">
       <DependentUpon>PageIssuers.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageNotifInvestor.xaml.cs">
+      <DependentUpon>PageNotifInvestor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PagePendingSecurities.xaml.cs">
       <DependentUpon>PagePendingSecurities.xaml</DependentUpon>
     </Compile>
@@ -159,6 +173,9 @@
     </Compile>
     <Compile Include="Pages\PageYourDeal.xaml.cs">
       <DependentUpon>PageYourDeal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageYourInvestor.xaml.cs">
+      <DependentUpon>PageYourInvestor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\ConfirmationWindow.xaml.cs">
       <DependentUpon>ConfirmationWindow.xaml</DependentUpon>

@@ -30,6 +30,7 @@ namespace IssuerAccount.Model
         public virtual DbSet<Deal> Deal { get; set; }
         public virtual DbSet<Investor> Investor { get; set; }
         public virtual DbSet<Issuer> Issuer { get; set; }
+        public virtual DbSet<Notification> Notification { get; set; }
         public virtual DbSet<Organization> Organization { get; set; }
         public virtual DbSet<Registrar> Registrar { get; set; }
         public virtual DbSet<Security> Security { get; set; }

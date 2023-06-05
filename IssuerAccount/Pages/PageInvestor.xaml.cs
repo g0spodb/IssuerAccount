@@ -1,6 +1,7 @@
 ﻿using IssuerAccount.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,13 +23,17 @@ namespace IssuerAccount.Pages
     public partial class PageInvestor : Page
     {
         public Investor Investor { get; set; }
+        public static ObservableCollection<Notification> notifications { get; set; }
+        public static int countt { get; set; }
         public PageInvestor(Investor investor)
         {
             InitializeComponent();
             Investor = investor;
-            this.DataContext = this;
             statusImage.Source = new BitmapImage(new Uri("/IssuerAccount;component/Resourses/galka.png", UriKind.Relative));
             statusText.Text = "Ваш счет открыт, баланс:";
+            var notifications = db_connection.connection.Notification.Where(i => i.Id_Investor == Investor.Id).ToList();
+            countt = notifications.Count;
+            this.DataContext = this;
         }
 
         private void btnSecurities_Click(object sender, RoutedEventArgs e)
@@ -76,6 +81,11 @@ namespace IssuerAccount.Pages
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PageLogin());
+        }
+
+        private void btnNotif_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageNotifInvestor(Investor));
         }
     }
 }

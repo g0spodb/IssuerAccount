@@ -18,6 +18,7 @@ namespace IssuerAccount.Model
         public Issuer()
         {
             this.AccountOpeningApplication = new HashSet<AccountOpeningApplication>();
+            this.Notification = new HashSet<Notification>();
             this.Security = new HashSet<Security>();
         }
     
@@ -35,6 +36,8 @@ namespace IssuerAccount.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AccountOpeningApplication> AccountOpeningApplication { get; set; }
         public virtual Organization Organization { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Notification> Notification { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Security> Security { get; set; }
     }

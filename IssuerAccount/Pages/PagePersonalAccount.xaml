@@ -58,19 +58,19 @@
         <StackPanel x:Name="spedit" Visibility="Hidden" Margin="0 40 0 0" Width="500" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Style="{StaticResource SP}" Height="610">
 
             <TextBlock FontSize="27" Text="Ваше ФИО" Foreground="white" Margin="15 10 0 0"></TextBlock>
-            <TextBox x:Name="tbFullName" Height="40" Background="White" Foreground="#41B3A3" Text="{Binding Issuer.FullName}"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+            <TextBox x:Name="tbFullName" Height="40" Background="White" Foreground="#93a7c8" Text="{Binding Issuer.FullName}"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
 
             <TextBlock FontSize="27" Text="Ваш логин" Foreground="white" Margin="15 10 0 0"></TextBlock>
-            <TextBox x:Name="tbLogin" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" Text="{Binding Issuer.Login}" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+            <TextBox x:Name="tbLogin" Height="40" Background="White" Foreground="#93a7c8"  Width="450" Margin="15 5 0 0" Text="{Binding Issuer.Login}" HorizontalAlignment="Left" FontSize="25" ></TextBox>
 
             <TextBlock FontSize="27" Text="Ваш пароль" Foreground="white" Margin="15 10 0 0"></TextBlock>
-            <TextBox x:Name="pbPassword" Height="40" Background="white" Foreground="#41B3A3" Width="450" Margin="15 5 0 0" Text="{Binding Issuer.Password}" FontSize="25" HorizontalAlignment="Left" ></TextBox>
+            <TextBox x:Name="pbPassword" Height="40" Background="white" Foreground="#93a7c8" Width="450" Margin="15 5 0 0" Text="{Binding Issuer.Password}" FontSize="25" HorizontalAlignment="Left" ></TextBox>
 
             <TextBlock FontSize="27" Text="Ваш адрес" Foreground="white" Margin="15 10 0 0"></TextBlock>
-            <TextBox x:Name="tbAdress" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" Text="{Binding Issuer.Adress}" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+            <TextBox x:Name="tbAdress" Height="40" Background="White" Foreground="#93a7c8"  Width="450" Margin="15 5 0 0" Text="{Binding Issuer.Adress}" HorizontalAlignment="Left" FontSize="25" ></TextBox>
 
             <TextBlock FontSize="27" Text="Ваш номер телефона" Foreground="white" Margin="15 10 0 0" HorizontalAlignment="Left"></TextBlock>
-            <TextBox x:Name="tbPhone" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" Text="{Binding Issuer.Phone}" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+            <TextBox x:Name="tbPhone" Height="40" Background="White" Foreground="#93a7c8"  Width="450" Margin="15 5 0 0" Text="{Binding Issuer.Phone}" HorizontalAlignment="Left" FontSize="25" ></TextBox>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="30" >
                 <Button x:Name="btnEditConf" Click="btnEditConf_Click" Width="200" Content="Изменить"  HorizontalAlignment="Left" Height="50" FontSize="27" Foreground="AliceBlue" Style="{StaticResource MainButtonStyle}" ></Button>
                 <Button x:Name="btnCancel" Click="btnCancel_Click" Content="Отменить"  Width="200" HorizontalAlignment="Left" Height="50" FontSize="27" Foreground="AliceBlue" Style="{StaticResource MainButtonStyle}" ></Button>

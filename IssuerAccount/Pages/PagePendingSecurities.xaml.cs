@@ -41,6 +41,9 @@ namespace IssuerAccount.Pages
                 selectedItem.Id_Registrar = Registrar.Id;
                 db_connection.connection.SaveChanges();
                 MessageBox.Show("Вы подтвердили продажу данной ценной бумаги");
+                pendingSecurities = new ObservableCollection<Security>(db_connection.connection.Security.Where(c => c.RegistrationStatus == null).ToList());
+                lv.ItemsSource = pendingSecurities;
+                lv.Items.Refresh();
             }
             else
             {
