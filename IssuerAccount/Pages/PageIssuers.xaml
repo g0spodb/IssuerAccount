@@ -28,12 +28,14 @@
 
         <Button x:Name="btnAccDelete" Visibility="Hidden" Grid.Row="1" Click="btnAccDelete_Click" FontSize="30" Grid.Column="1" HorizontalAlignment="Left" Height="35" Width="350" Style="{StaticResource SecondButtonStyle}" Cursor="Hand">Удалить эмитента</Button>
 
-        <ListView x:Name="lvIssuers" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding issuers}" Width="900" HorizontalAlignment="Left" BorderBrush="{x:Null}">
+        <ListView x:Name="lvIssuers" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding issuers}" HorizontalAlignment="Left" BorderBrush="{x:Null}">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderContainerStyle="{StaticResource GV}">
+                    <GridViewColumn Header="Id" Width="50" DisplayMemberBinding="{Binding Id}"/>
                     <GridViewColumn Header="ФИО" Width="300" DisplayMemberBinding="{Binding FullName}"/>
                     <GridViewColumn Header="Адрес" Width="300" DisplayMemberBinding="{Binding Adress}"/>
                     <GridViewColumn Header="Номер телефона" Width="300" DisplayMemberBinding="{Binding Phone}"/>
+                    <GridViewColumn Header="Организация" Width="300" DisplayMemberBinding="{Binding NameOrganization}"/>
                 </GridView>
             </ListView.View>
         </ListView>

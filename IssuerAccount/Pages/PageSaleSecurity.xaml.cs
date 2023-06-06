@@ -44,7 +44,7 @@ namespace IssuerAccount.Pages
                     Id_Issuer = Issuer.Id,
                     Date = DateTime.Now
                 };
-                Account.Balance = Account.Balance - (Convert.ToInt32(tbPrice.Text));
+                //Account.Balance = Account.Balance - (Convert.ToInt32(tbPrice.Text));
                 db_connection.connection.Security.Add(a);
                 db_connection.connection.SaveChanges();
                 MessageBox.Show("Ценная бумага успешно выставлена на продажу, ожидайте проверки");

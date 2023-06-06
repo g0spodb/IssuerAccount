@@ -36,8 +36,9 @@
                 <GridView AllowsColumnReorder="true" ColumnHeaderContainerStyle="{StaticResource GV}">
                     <GridViewColumn Header="ФИО" Width="300" DisplayMemberBinding="{Binding Issuer.FullName}"/>
                     <GridViewColumn Header="Адрес" Width="300" DisplayMemberBinding="{Binding Issuer.Adress}"/>
-                    <GridViewColumn Header="Номер телефона" Width="300" DisplayMemberBinding="{Binding Issuer.Phone}"/>
-                    <GridViewColumn Header="Дата заявки на регистрацию" Width="300" DisplayMemberBinding="{Binding DateOfApplication}"/>
+                    <GridViewColumn Header="Организация" Width="300" DisplayMemberBinding="{Binding Issuer.NameOrganization}"/>
+                    <GridViewColumn Header="Номер телефона" Width="150" DisplayMemberBinding="{Binding Issuer.Phone}"/>
+                    <GridViewColumn Header="Дата заявки" Width="150" DisplayMemberBinding="{Binding DateOfApplication, StringFormat='{}{0:dd/MM/yyyy}'}"/>
                 </GridView>
             </ListView.View>
         </ListView>

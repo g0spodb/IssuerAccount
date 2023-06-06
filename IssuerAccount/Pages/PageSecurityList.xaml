@@ -39,10 +39,10 @@
         <ListView x:Name="lv" ItemsSource="{Binding securities}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="20 0 0 0" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="25" Foreground="AntiqueWhite" >
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource GV}" >
-                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}"  Width="200"/>
+                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}"  Width="300"/>
                     <GridViewColumn Header="Кол-во" DisplayMemberBinding="{Binding Quantity}" Width="80"/>
-                    <GridViewColumn Header="Цена за шт" DisplayMemberBinding="{Binding Price}" Width="100"/>
-                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date, StringFormat='{}{0:MM/dd/yyyy}'}" Width="200"/>
+                    <GridViewColumn Header="Цена за шт" DisplayMemberBinding="{Binding Price}" Width="150"/>
+                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" Width="200"/>
                 </GridView>
             </ListView.View>
         </ListView>

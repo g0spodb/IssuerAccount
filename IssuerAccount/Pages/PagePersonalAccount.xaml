@@ -33,6 +33,8 @@
                 <StackPanel Orientation="Vertical" Grid.Row="2" HorizontalAlignment="Left">
                     <TextBlock FontSize="30" Height="60" Width="450">Ваше ФИО</TextBlock>
                     <TextBlock Text="{Binding Issuer.FullName}" Width="450" x:Name="FullName" TextWrapping="Wrap" FontSize="30" Height="72"/>
+                    <TextBlock FontSize="30" Height="60" Width="450">Название организации</TextBlock>
+                    <TextBlock Text="{Binding Issuer.NameOrganization}" Width="450" x:Name="NameOrg" TextWrapping="Wrap" FontSize="30" Height="72"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Grid.Row="2" HorizontalAlignment="Right">
                     <Image x:Name="IssuerPhoto" Margin="10" Grid.Row="1" Width="150" Height="150" Source="{Binding Issuer.Photo}" Stretch="UniformToFill"></Image>
@@ -55,7 +57,7 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel x:Name="spedit" Visibility="Hidden" Margin="0 40 0 0" Width="500" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Style="{StaticResource SP}" Height="610">
+        <StackPanel Visibility="Hidden" x:Name="spedit" Margin="0 40 0 0" Width="500" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Style="{StaticResource SP}" Height="630">
 
             <TextBlock FontSize="27" Text="Ваше ФИО" Foreground="white" Margin="15 10 0 0"></TextBlock>
             <TextBox x:Name="tbFullName" Height="40" Background="White" Foreground="#93a7c8" Text="{Binding Issuer.FullName}"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
@@ -71,6 +73,9 @@
 
             <TextBlock FontSize="27" Text="Ваш номер телефона" Foreground="white" Margin="15 10 0 0" HorizontalAlignment="Left"></TextBlock>
             <TextBox x:Name="tbPhone" Height="40" Background="White" Foreground="#93a7c8"  Width="450" Margin="15 5 0 0" Text="{Binding Issuer.Phone}" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+            
+            <TextBlock FontSize="27" Text="Название организации" Foreground="white" Margin="15 10 0 0" HorizontalAlignment="Left"></TextBlock>
+            <TextBox x:Name="tbNameOrg" Height="40" Background="White" Foreground="#93a7c8"  Width="450" Margin="15 5 0 0" Text="{Binding Issuer.NameOrganization}" HorizontalAlignment="Left" FontSize="25" ></TextBox>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="30" >
                 <Button x:Name="btnEditConf" Click="btnEditConf_Click" Width="200" Content="Изменить"  HorizontalAlignment="Left" Height="50" FontSize="27" Foreground="AliceBlue" Style="{StaticResource MainButtonStyle}" ></Button>
                 <Button x:Name="btnCancel" Click="btnCancel_Click" Content="Отменить"  Width="200" HorizontalAlignment="Left" Height="50" FontSize="27" Foreground="AliceBlue" Style="{StaticResource MainButtonStyle}" ></Button>

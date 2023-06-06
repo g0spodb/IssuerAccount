@@ -61,6 +61,7 @@
           <Property Name="Id_Organization" Type="int" />
           <Property Name="Id_Account" Type="int" />
           <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="NameOrganization" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Notification">
           <Key>
@@ -433,6 +434,7 @@
           <NavigationProperty Name="Organization" Relationship="IssuerAccountModel.FK_Issuer_Organization" FromRole="Issuer" ToRole="Organization" />
           <NavigationProperty Name="Notification" Relationship="IssuerAccountModel.FK_Notification_Issuer" FromRole="Issuer" ToRole="Notification" />
           <NavigationProperty Name="Security" Relationship="IssuerAccountModel.FK_Security_Issuer" FromRole="Issuer" ToRole="Security" />
+          <Property Name="NameOrganization" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Notification">
           <Key>
@@ -683,6 +685,7 @@
           <EntitySetMapping Name="Issuer">
             <EntityTypeMapping TypeName="IssuerAccountModel.Issuer">
               <MappingFragment StoreEntitySet="Issuer">
+                <ScalarProperty Name="NameOrganization" ColumnName="NameOrganization" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
                 <ScalarProperty Name="Id_Organization" ColumnName="Id_Organization" />

@@ -56,6 +56,7 @@ namespace IssuerAccount.Pages
             Issuer.Phone = tbPhone.Text;
             Issuer.Adress = tbAdress.Text;
             Issuer.Login = tbLogin.Text;
+            Issuer.NameOrganization = tbNameOrg.Text;
             Issuer.Password = pbPassword.Text;
             db_connection.connection.SaveChanges();
             MessageBox.Show("Ваши данные успешно изменены");

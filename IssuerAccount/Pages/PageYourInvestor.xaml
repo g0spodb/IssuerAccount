@@ -30,7 +30,7 @@
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource GV}" >
                     <GridViewColumn Header="ФИО Инвестора" DisplayMemberBinding="{Binding FullName}"  Width="300"/>
-                    <GridViewColumn Header="Номер инвестора" DisplayMemberBinding="{Binding Phone}" Width="200"/>
+                    <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding Phone}" Width="200"/>
                 </GridView>
             </ListView.View>
         </ListView>
