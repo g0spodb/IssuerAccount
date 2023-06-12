@@ -54,7 +54,6 @@ namespace IssuerAccount.Pages
         private void btnSold_Click(object sender, RoutedEventArgs e)
         {
             btnSale.Visibility = Visibility.Visible;
-            btnSold.Visibility = Visibility.Hidden;
             securities = new ObservableCollection<Security>(db_connection.connection.Security.Where(c => c.RegistrationStatus == true && c.Id_Issuer == Issuer.Id).ToList());
             lv.ItemsSource = securities;
             lv.Items.Refresh();
@@ -63,7 +62,6 @@ namespace IssuerAccount.Pages
         private void btnSale_Click(object sender, RoutedEventArgs e)
         {
             btnSale.Visibility = Visibility.Hidden;
-            btnSold.Visibility = Visibility.Visible;
             securities = new ObservableCollection<Security>(db_connection.connection.Security.Where(c => c.RegistrationStatus == true && c.Id_Issuer == Issuer.Id && c.SaleStatus == null).ToList());
             lv.ItemsSource = securities;
             lv.Items.Refresh();

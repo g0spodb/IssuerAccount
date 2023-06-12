@@ -13,7 +13,7 @@
             <RowDefinition Height="150"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" CornerRadius="50" Width="1425" Margin="-25 0 -25 0">
+        <Border Background="#c893a7" Grid.Row="0" CornerRadius="50" Width="1425" Margin="-25 0 -25 0">
             <StackPanel Grid.Row="0" Orientation="Horizontal" Width="1350" >
                 <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
                 <Button x:Name="btnFaq" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1030 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
@@ -34,7 +34,7 @@
                     <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50" />
                 </Image.Clip>
             </Image>
-            <TextBlock Text="{Binding Issuer.FullName}" Height="80" Width="170" x:Name="FullName" Foreground="White" TextWrapping="Wrap" FontSize="30">
+            <TextBlock Text="{Binding Issuer.FullName}" Height="70" Width="170" x:Name="FullName" Foreground="White" TextWrapping="Wrap" FontSize="30">
             <Hyperlink NavigateUri="PagePersonalAccount.xaml"></Hyperlink></TextBlock>
         </StackPanel>
         <StackPanel VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Right" Margin="130 35 180 0" Width="100" Height="100" >
@@ -46,6 +46,7 @@
                 <Button x:Name="btnDeal" Click="btnDeal_Click" FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}" Cursor="Hand">История покупок ваших ценных бумаг</Button>
                 <Button x:Name="btnSecurity" Click="btnSecurity_Click" FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}">Ваши ценные бумаги</Button>
                 <Button x:Name="btnYourInvestors" Click="btnYourInvestors_Click" FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}">Ваши инвесторы</Button>
+                <Button x:Name="btnStats" Click="btnStats_Click" FontSize="30" Height="50" Margin="20" Style="{StaticResource MainButtonStyle}">Статистика</Button>
                 <StackPanel.Effect>
                     <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="{StaticResource ShadowColor}"/>
                 </StackPanel.Effect>

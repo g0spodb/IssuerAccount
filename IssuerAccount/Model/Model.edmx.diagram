@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5626149a95104b4b8e6699b427d120fe" Name="Diagram1" ZoomLevel="61">
+      <Diagram DiagramId="5626149a95104b4b8e6699b427d120fe" Name="Diagram1" ZoomLevel="101">
         <EntityTypeShape EntityType="IssuerAccountModel.Account" Width="1.5" PointX="0.75" PointY="6.875" />
         <EntityTypeShape EntityType="IssuerAccountModel.AccountOpeningApplication" Width="1.5" PointX="5.25" PointY="4.625" />
         <EntityTypeShape EntityType="IssuerAccountModel.Deal" Width="1.5" PointX="5.25" PointY="11.125" />
@@ -26,6 +26,7 @@
         <AssociationConnector Association="IssuerAccountModel.FK_Notification_Issuer" />
         <AssociationConnector Association="IssuerAccountModel.FK_Security_Issuer" />
         <AssociationConnector Association="IssuerAccountModel.FK_Security_Registrar" />
+        <AssociationConnector Association="IssuerAccountModel.FK_Deal_Issuer" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

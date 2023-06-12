@@ -50,7 +50,7 @@ namespace IssuerAccount.Pages
         }
         private void btnDeal_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new PageYourDeals(Issuer));
         }
 
         private void img_prod_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -111,6 +111,11 @@ namespace IssuerAccount.Pages
         private void btnYourInvestors_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PageYourInvestor(Issuer));
+        }
+
+        private void btnStats_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageStats(Issuer));
         }
     }
 }

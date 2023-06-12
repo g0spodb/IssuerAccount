@@ -1,0 +1,58 @@
+﻿<Page x:Class="IssuerAccount.Pages.PageStats"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IssuerAccount.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1400"
+      Title="PageStats" FontFamily="Bahnschrift SemiBold">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border Background="#c893a7" Grid.Row="0" CornerRadius="50" Width="1425" Margin="-25 0 -25 0">
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Width="1350" >
+                <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
+                <Button x:Name="btnFaq" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1030 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
+            </StackPanel>
+        </Border>
+        <StackPanel Margin="0 40 0 0" Grid.Row="1" Width="700" VerticalAlignment="Top" Style="{StaticResource SP}" Height="400">
+            <StackPanel Orientation="Horizontal" Margin="15 10 0 0">
+                <TextBlock FontSize="25" Text="Всего сделок:" Foreground="white" />
+                <TextBlock x:Name="totalDealsTextBlock" Foreground="white" Width="100" FontSize="25"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="15 10 0 0">
+                <TextBlock FontSize="25" Text="Наибольшая сумма одной сделки:" Foreground="white"></TextBlock>
+                <TextBlock x:Name="averageDealPriceTextBlock" Foreground="white" HorizontalAlignment="Left" FontSize="25" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="15 10 0 0">
+                <TextBlock FontSize="25" Text="Макс. количество купленной ценной бумаги:" Foreground="white" ></TextBlock>
+                <TextBlock FontSize="25" x:Name="maxSoldSecuritiesTextBlock" Foreground="white" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="15 10 0 0">
+                <TextBlock Text="Количество купленных ценных бумаг:" Height="40" Foreground="White" FontSize="25"></TextBlock>
+                <TextBlock FontSize="25" x:Name="totalSoldSecuritiesTextBlock" Foreground="white"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="15 10 0 0">
+                <TextBlock Text="Полученная прибыль за проданные ценные бумаги:" Height="40" Foreground="White" FontSize="25"></TextBlock>
+                <TextBlock FontSize="25" x:Name="totalRevenueTextBlock" Foreground="white"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="15 10 0 0">
+                <TextBlock Text="Количество выплаченных ценных бумаг:" Height="40" Foreground="White" FontSize="25"></TextBlock>
+                <TextBlock FontSize="25" x:Name="paidSecuritiesTextBlock" Foreground="white"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="15 10 0 0">
+                <TextBlock Text="Количество невыплаченных ценных бумаг:" Height="40" Foreground="White" FontSize="25"></TextBlock>
+                <TextBlock FontSize="25" x:Name="unpaidSecuritiesTextBlock" Foreground="white"></TextBlock>
+            </StackPanel>
+
+            
+            <StackPanel.Effect>
+                <DropShadowEffect Opacity="1" RenderingBias="Performance" Direction="500" ShadowDepth="0" BlurRadius="100" Color="{StaticResource ShadowColor}"/>
+            </StackPanel.Effect>
+        </StackPanel>
+    </Grid>
+</Page>

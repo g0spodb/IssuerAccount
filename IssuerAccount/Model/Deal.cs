@@ -20,8 +20,11 @@ namespace IssuerAccount.Model
         public Nullable<int> Quantity { get; set; }
         public Nullable<int> Price { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
+        public Nullable<bool> IsPaid { get; set; }
+        public Nullable<int> Id_Issuer { get; set; }
     
         public virtual Investor Investor { get; set; }
         public virtual Security Security { get; set; }
+        public virtual Issuer Issuer { get; set; }
     }
 }

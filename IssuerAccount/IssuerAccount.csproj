@@ -118,7 +118,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageStats.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PageYourDeal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageYourDeals.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,8 +179,14 @@
     <Compile Include="Pages\PageRegistrar.xaml.cs">
       <DependentUpon>PageRegistrar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageStats.xaml.cs">
+      <DependentUpon>PageStats.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageYourDeal.xaml.cs">
       <DependentUpon>PageYourDeal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageYourDeals.xaml.cs">
+      <DependentUpon>PageYourDeals.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageYourInvestor.xaml.cs">
       <DependentUpon>PageYourInvestor.xaml</DependentUpon>

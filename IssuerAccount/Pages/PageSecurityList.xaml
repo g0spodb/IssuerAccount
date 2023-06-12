@@ -27,13 +27,11 @@
                 <Button x:Name="btnFaq" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1030 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
             </StackPanel>
         </Border>
-        
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Список ценных бумаг на продаже" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="AntiqueWhite" FontSize="25"/>
         <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="3" VerticalAlignment="Top">
             <Button x:Name="btnSaleSecurity" Click="btnSaleSecurity_Click" Height="40" Width="180" VerticalAlignment="Top" Style="{StaticResource SecondButtonStyle}">Продать ценную бумагу</Button>
-            <Button x:Name="btnDelete" Click="btnDelete_Click" Height="40" Margin="0 20 0 0" Width="180" VerticalAlignment="Top" Style="{StaticResource SecondButtonStyle}" Cursor="Hand">Снять с продажи</Button>
         </StackPanel>
-        <Button x:Name="btnSold" Click="btnSold_Click" Height="60" Width="300" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="30 0 0 0" Style="{StaticResource SecondButtonStyle}">Отобразить все ценные бумаги</Button>
+        <!--<Button x:Name="btnSold" Click="btnSold_Click" Height="60" Width="300" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="30 0 0 0" Style="{StaticResource SecondButtonStyle}">Отобразить все ценные бумаги</Button>-->
         <Button x:Name="btnSale" Click="btnSale_Click" Height="60" Width="300" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Visibility="Hidden" Margin="30 0 0 0" Style="{StaticResource SecondButtonStyle}">Отобразить ценные бумаги на продаже</Button>
         
         <ListView x:Name="lv" ItemsSource="{Binding securities}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="20 0 0 0" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="25" Foreground="AntiqueWhite" >

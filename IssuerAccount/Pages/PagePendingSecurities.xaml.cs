@@ -44,6 +44,33 @@ namespace IssuerAccount.Pages
                 pendingSecurities = new ObservableCollection<Security>(db_connection.connection.Security.Where(c => c.RegistrationStatus == null).ToList());
                 lv.ItemsSource = pendingSecurities;
                 lv.Items.Refresh();
+                selectedItem.Quantity = selectedItem.Quantity - 1;
+                var d = new Deal
+                {
+                    Id_Security = selectedItem.Id,
+                    Id_Investor = 9,
+                    Quantity = 1,
+                    Price = selectedItem.Price,
+                    Date = DateTime.Now,
+                    Id_Issuer = selectedItem.Id_Issuer,
+                    IsPaid = false
+                };
+                var iss = db_connection.connection.Issuer.FirstOrDefault(z => z.Id == selectedItem.Id_Issuer);
+                var Acc = db_connection.connection.Account.FirstOrDefault(z => z.Id == iss.Id_Account);
+                Acc.Balance = Acc.Balance + (selectedItem.Price * 2);
+                db_connection.connection.Deal.Add(d);
+                var x = new Deal
+                {
+                    Id_Security = selectedItem.Id,
+                    Id_Investor = 8,
+                    Quantity = 1,
+                    Price = selectedItem.Price,
+                    Date = DateTime.Now,
+                    Id_Issuer = selectedItem.Id_Issuer,
+                    IsPaid = false
+                };
+                db_connection.connection.Deal.Add(x);
+                db_connection.connection.SaveChanges();
             }
             else
             {

@@ -34,6 +34,8 @@
           <Property Name="Quantity" Type="int" />
           <Property Name="Price" Type="int" />
           <Property Name="Date" Type="date" />
+          <Property Name="IsPaid" Type="bit" />
+          <Property Name="Id_Issuer" Type="int" />
         </EntityType>
         <EntityType Name="Investor">
           <Key>
@@ -149,6 +151,18 @@
             </Principal>
             <Dependent Role="Deal">
               <PropertyRef Name="Id_Investor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deal_Issuer">
+          <End Role="Issuer" Type="Self.Issuer" Multiplicity="0..1" />
+          <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Issuer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="Id_Issuer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -271,6 +285,10 @@
             <End Role="Investor" EntitySet="Investor" />
             <End Role="Deal" EntitySet="Deal" />
           </AssociationSet>
+          <AssociationSet Name="FK_Deal_Issuer" Association="Self.FK_Deal_Issuer">
+            <End Role="Issuer" EntitySet="Issuer" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
           <AssociationSet Name="FK_Deal_Security" Association="Self.FK_Deal_Security">
             <End Role="Security" EntitySet="Security" />
             <End Role="Deal" EntitySet="Deal" />
@@ -363,6 +381,10 @@
             <End Role="Registrar" EntitySet="Registrar" />
             <End Role="Security" EntitySet="Security" />
           </AssociationSet>
+          <AssociationSet Name="FK_Deal_Issuer" Association="IssuerAccountModel.FK_Deal_Issuer">
+            <End Role="Issuer" EntitySet="Issuer" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -399,6 +421,9 @@
           <Property Name="Date" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Investor" Relationship="IssuerAccountModel.FK_Deal_Investor" FromRole="Deal" ToRole="Investor" />
           <NavigationProperty Name="Security" Relationship="IssuerAccountModel.FK_Deal_Security" FromRole="Deal" ToRole="Security" />
+          <Property Name="IsPaid" Type="Boolean" />
+          <Property Name="Id_Issuer" Type="Int32" />
+          <NavigationProperty Name="Issuer" Relationship="IssuerAccountModel.FK_Deal_Issuer" FromRole="Deal" ToRole="Issuer" />
         </EntityType>
         <EntityType Name="Investor">
           <Key>
@@ -435,6 +460,7 @@
           <NavigationProperty Name="Notification" Relationship="IssuerAccountModel.FK_Notification_Issuer" FromRole="Issuer" ToRole="Notification" />
           <NavigationProperty Name="Security" Relationship="IssuerAccountModel.FK_Security_Issuer" FromRole="Issuer" ToRole="Security" />
           <Property Name="NameOrganization" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Deal" Relationship="IssuerAccountModel.FK_Deal_Issuer" FromRole="Issuer" ToRole="Deal" />
         </EntityType>
         <EntityType Name="Notification">
           <Key>
@@ -629,6 +655,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Deal_Issuer">
+          <End Type="IssuerAccountModel.Issuer" Role="Issuer" Multiplicity="0..1" />
+          <End Type="IssuerAccountModel.Deal" Role="Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Issuer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="Id_Issuer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -659,6 +697,8 @@
           <EntitySetMapping Name="Deal">
             <EntityTypeMapping TypeName="IssuerAccountModel.Deal">
               <MappingFragment StoreEntitySet="Deal">
+                <ScalarProperty Name="Id_Issuer" ColumnName="Id_Issuer" />
+                <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />

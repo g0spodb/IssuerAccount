@@ -24,13 +24,17 @@
         <StackPanel Margin="0 40 0 0" Grid.Row="1" Width="500" Style="{StaticResource SP}" Height="610">
 
             <TextBlock FontSize="27" Text="Название" Foreground="white" Margin="15 10 0 0"></TextBlock>
-            <TextBox x:Name="tbName" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+            <TextBox x:Name="tbName" Height="40" Background="White" Foreground="#93a7c8"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
 
             <TextBlock FontSize="27" Text="Количество" Foreground="white" Margin="15 10 0 0"></TextBlock>
-            <TextBox x:Name="tbQuantity" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+            <TextBox x:Name="tbQuantity" Height="40" Background="White" Foreground="#93a7c8"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
             
             <TextBlock FontSize="27" Text="Цена" Foreground="white" Margin="15 10 0 0"></TextBlock>
-            <TextBox x:Name="tbPrice" Height="40" Background="White" Foreground="#41B3A3"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+            <TextBox x:Name="tbPrice" Height="40" Background="White" Foreground="#93a7c8"  Width="450" Margin="15 5 0 0" HorizontalAlignment="Left" FontSize="25" ></TextBox>
+            <ComboBox SelectedIndex="0" Foreground="Black" FontSize="25" Margin="15 20 0 0" Width="450" HorizontalAlignment="Left">
+                <ComboBoxItem Content="Ежемесячная выплата 5%" />
+                <ComboBoxItem Content="Единовременная выплата" />
+            </ComboBox>
 
             <Button x:Name="btnSale" Click="btnSale_Click" Style="{StaticResource MainButtonStyle}" Content="Выставить на продажу" Margin="15 50 0 0" Width="450" HorizontalAlignment="Left" Height="50" FontSize="27"></Button>
 
