@@ -47,7 +47,9 @@ namespace IssuerAccount.Pages
                     if (Acc.Balance >= selectedItem.Price * 1.1)
                     {
                         Acc.Balance = Acc.Balance - Convert.ToInt32(selectedItem.Price * 1.1);
+                        selectedItem.IsPaid = true;
                         MessageBox.Show("Средства успешно выплачены");
+                        db_connection.connection.SaveChanges();
                         deals = new ObservableCollection<Deal>(db_connection.connection.Deal.Where(c => c.Id_Issuer == Issuer.Id).ToList());
                         lv.ItemsSource = deals;
                         lv.Items.Refresh();

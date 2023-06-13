@@ -26,8 +26,8 @@ namespace IssuerAccount.Pages
         {
             InitializeComponent();
             Issuer = issuer;
+            FillStatistics();   
             this.DataContext = this;
-            FillStatistics();
         }
         private void FillStatistics()
         {
@@ -39,7 +39,7 @@ namespace IssuerAccount.Pages
                 {
                     // Заполнение значений статистики
                     totalDealsTextBlock.Text = context.Deal.Count(d => d.Id_Issuer == Issuer.Id).ToString();
-                    averageDealPriceTextBlock.Text = context.Deal.Where(d => d.Id_Issuer == Issuer.Id).Average(d => d.Price).ToString();
+                    averageDealPriceTextBlock.Text = context.Deal.Where(d => d.Id_Issuer == Issuer.Id).Max(d => d.Price).ToString();
                     maxSoldSecuritiesTextBlock.Text = context.Deal.Where(d => d.Id_Issuer == Issuer.Id).Max(d => d.Quantity).ToString();
                     totalSoldSecuritiesTextBlock.Text = context.Deal.Where(d => d.Id_Issuer == Issuer.Id).Sum(d => d.Quantity).ToString();
                     decimal totalRevenue = (decimal)context.Deal.Where(d => d.Id_Issuer == Issuer.Id).Sum(d => d.Quantity * d.Price);
