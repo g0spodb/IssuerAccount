@@ -38,6 +38,8 @@ namespace IssuerAccount.Pages
                 if (issuer != null)
                 {
                     // Заполнение значений статистики
+                    try
+                    {
                     totalDealsTextBlock.Text = context.Deal.Count(d => d.Id_Issuer == Issuer.Id).ToString();
                     averageDealPriceTextBlock.Text = context.Deal.Where(d => d.Id_Issuer == Issuer.Id).Max(d => d.Price).ToString();
                     maxSoldSecuritiesTextBlock.Text = context.Deal.Where(d => d.Id_Issuer == Issuer.Id).Max(d => d.Quantity).ToString();
@@ -49,6 +51,11 @@ namespace IssuerAccount.Pages
 
                     paidSecuritiesTextBlock.Text = paidSecuritiesCount.ToString();
                     unpaidSecuritiesTextBlock.Text = unpaidSecuritiesCount.ToString();
+                    }
+                    catch(Exception ex)
+                    {
+
+                    }
                 }
             }
         }

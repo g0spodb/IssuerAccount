@@ -20,16 +20,15 @@
         <Border Grid.Row="0" Background="#c893a7" CornerRadius="50" Grid.ColumnSpan="3" Width="1425" Margin="-25 0 -25 0">
             <StackPanel Grid.Row="0" Orientation="Horizontal" Width="1350" >
                 <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
-                <Button x:Name="btnFaq" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1030 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
             </StackPanel>
         </Border>
         
         <Button x:Name="btnNotif" Grid.Row="1" Click="btnNotif_Click" FontSize="30" Grid.Column="1" HorizontalAlignment="Left" Height="35" Width="350" Style="{StaticResource SecondButtonStyle}" Cursor="Hand">Написать сообщение</Button>
 
-        <ListView x:Name="lv" ItemsSource="{Binding investors}" Grid.Column="1" Grid.Row="3" Width="500" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="20 0 0 0" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="25" Foreground="AntiqueWhite" >
+        <ListView x:Name="lv" ItemsSource="{Binding investors}" Grid.Column="1" Grid.Row="3" Width="700" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="20 0 0 0" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="25" Foreground="AntiqueWhite" >
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource GV}" >
-                    <GridViewColumn Header="ФИО Инвестора" DisplayMemberBinding="{Binding FullName}"  Width="300"/>
+                    <GridViewColumn Header="ФИО Инвестора" DisplayMemberBinding="{Binding FullName}"  Width="500"/>
                     <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding Phone}" Width="200"/>
                 </GridView>
             </ListView.View>

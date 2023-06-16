@@ -22,20 +22,20 @@
         <Border Background="#c893a7" Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="50" Width="1425" Margin="-25 0 -25 0">
             <StackPanel Grid.Row="0" Orientation="Horizontal" Width="1350" >
                 <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
-                <Button x:Name="btnFaq" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1030 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
             </StackPanel>
         </Border>
-        
-        <ListView x:Name="lvDeals" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding deals}"  HorizontalAlignment="Left" BorderBrush="{x:Null}">
+
+        <ListView x:Name="lvDeals" Grid.Row="2" Grid.Column="1" FontSize="20" ItemsSource="{Binding deals}" Width="1180" HorizontalAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderContainerStyle="{StaticResource GV}">
                     <GridViewColumn Header="Id" Width="30" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Название ценной бумаги" Width="300" DisplayMemberBinding="{Binding Security.Name}"/>
-                    <GridViewColumn Header="ФИО Эмитента" Width="300" DisplayMemberBinding="{Binding Security.Issuer.FullName}"/>
-                    <GridViewColumn Header="ФИО Инвестора" Width="300" DisplayMemberBinding="{Binding Investor.FullName}"/>
-                    <GridViewColumn Header="Количество" Width="100" DisplayMemberBinding="{Binding Quantity}"/>
-                    <GridViewColumn Header="Цена" Width="60" DisplayMemberBinding="{Binding Price}"/>
-                    <GridViewColumn Header="Дата" Width="200" DisplayMemberBinding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                    <GridViewColumn Header="Название ценной бумаги" Width="200" DisplayMemberBinding="{Binding Security.Name}"/>
+                    <GridViewColumn Header="ФИО Эмитента" Width="350" DisplayMemberBinding="{Binding Security.Issuer.FullName}"/>
+                    <GridViewColumn Header="ФИО Инвестора" Width="350" DisplayMemberBinding="{Binding Investor.FullName}"/>
+                    <GridViewColumn Header="Кол-во" Width="60" DisplayMemberBinding="{Binding Quantity}"/>
+                    <GridViewColumn Header="Цена" Width="60" DisplayMemberBinding="{Binding Price}">
+                    </GridViewColumn>
+                    <GridViewColumn Header="Дата" Width="130" DisplayMemberBinding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
                 </GridView>
             </ListView.View>
         </ListView>

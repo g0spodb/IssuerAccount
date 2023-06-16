@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,12 +37,13 @@ namespace IssuerAccount.Pages
             NavigationService.Navigate(new PageMain(Issuer));
         }
 
+
         private void btnPayout_Click(object sender, RoutedEventArgs e)
         {
             var selectedItem = (Deal)lv.SelectedItem;
             if (selectedItem != null)
             {
-                if(selectedItem.IsPaid == false || selectedItem.IsPaid == null)
+                if (selectedItem.IsPaid == false || selectedItem.IsPaid == null)
                 {
                     var Acc = db_connection.connection.Account.FirstOrDefault(z => z.Id == Issuer.Id_Account);
                     if (Acc.Balance >= selectedItem.Price * 1.1)

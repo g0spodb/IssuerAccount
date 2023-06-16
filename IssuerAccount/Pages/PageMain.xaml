@@ -16,7 +16,6 @@
         <Border Background="#c893a7" Grid.Row="0" CornerRadius="50" Width="1425" Margin="-25 0 -25 0">
             <StackPanel Grid.Row="0" Orientation="Horizontal" Width="1350" >
                 <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
-                <Button x:Name="btnFaq" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1030 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
             </StackPanel>
         </Border>
         <Rectangle MouseLeftButtonDown="img_prod_MouseLeftButtonDown" RadiusX="50" RadiusY="120" Style="{StaticResource Rec}" Width="400" Height="130" VerticalAlignment="Top" Margin="0 20 -100 0" HorizontalAlignment="Right" Grid.Row="1"/>

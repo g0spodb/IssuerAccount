@@ -10,30 +10,29 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="100"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Border Background="#c893a7" Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="50" Width="1425" Margin="-25 -9 -25 0">
             <StackPanel Grid.Row="0" Orientation="Horizontal" Width="1350" >
                 <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
-                <Button x:Name="btnFaq" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1030 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
             </StackPanel>
         </Border>
 
         <Button x:Name="btnAccDelete" Visibility="Hidden" Click="btnAccDelete_Click" Grid.Row="1" FontSize="30" Grid.Column="1" HorizontalAlignment="Left" Height="35" Width="350" Style="{StaticResource SecondButtonStyle}" Cursor="Hand">Удалить инвестора</Button>
 
-        <ListView x:Name="lvInvestors" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding investors}"  Width="900" HorizontalAlignment="Left" BorderBrush="{x:Null}">
+        <ListView x:Name="lvInvestors" FontSize="25" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding investors}" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Width="1050" HorizontalAlignment="Left" BorderBrush="{x:Null}">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderContainerStyle="{StaticResource GV}">
-                    <GridViewColumn Header="ФИО" Width="300" DisplayMemberBinding="{Binding FullName}"/>
-                    <GridViewColumn Header="Адрес" Width="300" DisplayMemberBinding="{Binding Adress}"/>
-                    <GridViewColumn Header="Номер телефона" Width="300" DisplayMemberBinding="{Binding Phone}"/>
+                    <GridViewColumn Header="ФИО" Width="500" DisplayMemberBinding="{Binding FullName}"/>
+                    <GridViewColumn Header="Адрес" Width="350" DisplayMemberBinding="{Binding Adress}"/>
+                    <GridViewColumn Header="Номер телефона" Width="200" DisplayMemberBinding="{Binding Phone}"/>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -10,32 +10,31 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="100"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Border Background="#c893a7" Grid.Row="0" Grid.ColumnSpan="3" CornerRadius="50" Width="1425" Margin="-25 -9 -25 0">
             <StackPanel Grid.Row="0" Orientation="Horizontal" Width="1350" >
                 <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
-                <Button x:Name="btnFaq" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="1030 0 0 0" Content="FAQ" HorizontalAlignment="Right"/>
             </StackPanel>
         </Border>
 
         <Button x:Name="btnAccDelete" Visibility="Hidden" Grid.Row="1" Click="btnAccDelete_Click" FontSize="30" Grid.Column="1" HorizontalAlignment="Left" Height="35" Width="350" Style="{StaticResource SecondButtonStyle}" Cursor="Hand">Удалить эмитента</Button>
 
-        <ListView x:Name="lvIssuers" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding issuers}" HorizontalAlignment="Left" BorderBrush="{x:Null}">
+        <ListView x:Name="lvIssuers" Grid.Row="2" Grid.Column="1" FontSize="25" ItemsSource="{Binding issuers}" Width="1240" HorizontalAlignment="Left" BorderBrush="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.View>
-                <GridView AllowsColumnReorder="true" ColumnHeaderContainerStyle="{StaticResource GV}">
+                <GridView AllowsColumnReorder="true"  ColumnHeaderContainerStyle="{StaticResource GV}">
                     <GridViewColumn Header="Id" Width="50" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="ФИО" Width="300" DisplayMemberBinding="{Binding FullName}"/>
-                    <GridViewColumn Header="Адрес" Width="300" DisplayMemberBinding="{Binding Adress}"/>
-                    <GridViewColumn Header="Номер телефона" Width="300" DisplayMemberBinding="{Binding Phone}"/>
-                    <GridViewColumn Header="Организация" Width="300" DisplayMemberBinding="{Binding NameOrganization}"/>
+                    <GridViewColumn Header="ФИО" Width="430" DisplayMemberBinding="{Binding FullName}"/>
+                    <GridViewColumn Header="Адрес" Width="350" DisplayMemberBinding="{Binding Adress}"/>
+                    <GridViewColumn Header="Номер телефона" Width="160" DisplayMemberBinding="{Binding Phone}"/>
+                    <GridViewColumn Header="Организация" Width="250" DisplayMemberBinding="{Binding NameOrganization}"/>
                 </GridView>
             </ListView.View>
         </ListView>

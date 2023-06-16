@@ -149,6 +149,7 @@
     <Compile Include="Model\Notification.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BooleanToYesNoConverter.cs" />
     <Compile Include="Pages\PageAccountOpening.xaml.cs">
       <DependentUpon>PageAccountOpening.xaml</DependentUpon>
     </Compile>
