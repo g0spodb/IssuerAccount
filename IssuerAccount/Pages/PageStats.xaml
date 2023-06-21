@@ -18,33 +18,34 @@
                 <Button x:Name="btnBack" Click="btnBack_Click" Width="150" Height="40" FontSize="19" Style="{StaticResource SecondaryButtonStyle}" Margin="10 0 0 0">Назад</Button>
             </StackPanel>
         </Border>
-        <StackPanel Margin="0 40 0 0" Grid.Row="1" Width="700" VerticalAlignment="Top" Style="{StaticResource SP}" Height="400">
+        
+        <StackPanel Grid.Row="1" Width="700" VerticalAlignment="Center" Style="{StaticResource SP}" Height="400">
             <StackPanel Orientation="Horizontal" Margin="15 10 0 0">
-                <TextBlock FontSize="25" Text="Всего сделок:" Foreground="white" />
+                <TextBlock FontSize="25" Text="Всего сделок: " Height="40" Foreground="white" />
                 <TextBlock x:Name="totalDealsTextBlock" Foreground="white" Width="100" FontSize="25"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="15 10 0 0">
-                <TextBlock FontSize="25" Text="Наибольшая сумма одной сделки:" Foreground="white"></TextBlock>
+                <TextBlock FontSize="25" Text="Наибольшая сумма одной сделки: " Height="40" Foreground="white"></TextBlock>
                 <TextBlock x:Name="averageDealPriceTextBlock" Foreground="white" HorizontalAlignment="Left" FontSize="25" ></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="15 10 0 0">
-                <TextBlock FontSize="25" Text="Макс. количество купленной ценной бумаги:" Foreground="white" ></TextBlock>
+                <TextBlock FontSize="25" Text="Макс. количество купленной ценной бумаги: " Height="40" Foreground="white" ></TextBlock>
                 <TextBlock FontSize="25" x:Name="maxSoldSecuritiesTextBlock" Foreground="white" ></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="15 10 0 0">
-                <TextBlock Text="Количество купленных ценных бумаг:" Height="40" Foreground="White" FontSize="25"></TextBlock>
+                <TextBlock Text="Количество купленных ценных бумаг: " Height="40" Foreground="White" FontSize="25"></TextBlock>
                 <TextBlock FontSize="25" x:Name="totalSoldSecuritiesTextBlock" Foreground="white"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="15 10 0 0">
-                <TextBlock Text="Полученная прибыль за проданные ценные бумаги:" Height="40" Foreground="White" FontSize="25"></TextBlock>
+                <TextBlock Text="Полученная прибыль за проданные ценные бумаги: " Height="40" Foreground="White" FontSize="25"></TextBlock>
                 <TextBlock FontSize="25" x:Name="totalRevenueTextBlock" Foreground="white"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="15 10 0 0">
-                <TextBlock Text="Количество выплаченных ценных бумаг:" Height="40" Foreground="White" FontSize="25"></TextBlock>
+                <TextBlock Text="Количество выплаченных ценных бумаг: " Height="40" Foreground="White" FontSize="25"></TextBlock>
                 <TextBlock FontSize="25" x:Name="paidSecuritiesTextBlock" Foreground="white"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="15 10 0 0">
-                <TextBlock Text="Количество невыплаченных ценных бумаг:" Height="40" Foreground="White" FontSize="25"></TextBlock>
+                <TextBlock Text="Количество невыплаченных ценных бумаг: " Height="40" Foreground="White" FontSize="25"></TextBlock>
                 <TextBlock FontSize="25" x:Name="unpaidSecuritiesTextBlock" Foreground="white"></TextBlock>
             </StackPanel>
 

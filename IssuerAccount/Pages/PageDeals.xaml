@@ -32,8 +32,8 @@
                     <GridViewColumn Header="Название ценной бумаги" Width="200" DisplayMemberBinding="{Binding Security.Name}"/>
                     <GridViewColumn Header="ФИО Эмитента" Width="350" DisplayMemberBinding="{Binding Security.Issuer.FullName}"/>
                     <GridViewColumn Header="ФИО Инвестора" Width="350" DisplayMemberBinding="{Binding Investor.FullName}"/>
-                    <GridViewColumn Header="Кол-во" Width="60" DisplayMemberBinding="{Binding Quantity}"/>
-                    <GridViewColumn Header="Цена" Width="60" DisplayMemberBinding="{Binding Price}">
+                    <GridViewColumn Header="Кол-во" Width="60" DisplayMemberBinding="{Binding Quantity, StringFormat='{}{0} шт'}"/>
+                    <GridViewColumn Header="Цена за шт" Width="100" DisplayMemberBinding="{Binding Price, StringFormat='{}{0} руб'}" >
                     </GridViewColumn>
                     <GridViewColumn Header="Дата" Width="130" DisplayMemberBinding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
                 </GridView>

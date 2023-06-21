@@ -52,7 +52,6 @@ namespace IssuerAccount.Pages
 
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
-            btnNotif.Visibility = Visibility.Hidden;
             var selectedItem = (Investor)lv.SelectedItem;
             var n = new Notification
             {
